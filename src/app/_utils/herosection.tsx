@@ -13,8 +13,8 @@ const HeroSection = ({
   P = (
     <>
       Actoviz is a leading <span>software rental platform</span> that provides access to premium 
-      applications including <span>Learning Management Systems</span>, <span>International Calling Dialers</span>, 
-      and <span>enterprise software solutions</span> on flexible subscription plans.
+      applications including <span>Learning Management Systems</span> and <span>International Calling Dialers</span> 
+      on flexible subscription plans.
     </>
   ),
   videoLink = "https://www.youtube.com/embed/o2lfsiE2PEg?si=tJmSicv7r4UXVtYn",

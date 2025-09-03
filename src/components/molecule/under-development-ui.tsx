@@ -8,7 +8,7 @@ const UnderDevelopmentUI = () => {
       <div className="space-y-4 pt-10">
         <h2>Under Development</h2>
         <p className="text-gray-500">
-          Sorry! We are working on this page. We would like to request you to
+          Sorry! We are working on . We would like to request you to
           visit later on and inform you soon as we are done.
         </p>
         <Link href="/" className="underline">

@@ -1,16 +1,7 @@
-import GigsSection from "./_partials/gigs-section";
-import HeroSection from "./_partials/hero-section";
-import Testimonial from "@/app/_utils/testimonial";
-import { homeTestimonialData } from "@/lib/data/data";
+import { redirect } from "next/navigation";
 
 const Page = () => {
-  return (
-    <div>
-      <HeroSection />
-      <GigsSection />
-      <Testimonial calendly={true} data={homeTestimonialData} />
-    </div>
-  );
+  redirect("/");
 };
 
 export default Page;

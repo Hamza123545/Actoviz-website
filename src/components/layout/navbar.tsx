@@ -206,9 +206,6 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
               >
                 Dashboard
               </Link>
-              <Link href="/scale-with-ads">
-                <ShimmerButton>Scale now</ShimmerButton>
-              </Link>
             </ul>
           </div>
         </div>
@@ -246,33 +243,6 @@ const Links = [
     id: 3,
     text: "Pricing",
     link: "/pricing",
-    children: [
-      {
-        id: 1,
-        text: "Monthly Plans",
-        link: "/pricing/monthly",
-      },
-      {
-        id: 2,
-        text: "Annual Plans",
-        link: "/pricing/annual",
-      },
-      {
-        id: 3,
-        text: "Enterprise Solutions",
-        link: "/pricing/enterprise",
-      },
-      {
-        id: 4,
-        text: "Custom Packages",
-        link: "/pricing/custom",
-      },
-    ],
-  },
-  {
-    id: 4,
-    text: "Resources",
-    link: "/resources",
   },
   {
     id: 5,

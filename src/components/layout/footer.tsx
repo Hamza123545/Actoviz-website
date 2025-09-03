@@ -98,11 +98,16 @@ const HeadingLinks = [
       },
       {
         id: 3,
+        text: "Get Free Consultation",
+        link: "/get-a-free-consultation",
+      },
+      {
+        id: 4,
         text: "About us",
         link: "/about-us",
       },
       {
-        id: 4,
+        id: 5,
         text: "Contact us",
         link: "/contact-us",
       },

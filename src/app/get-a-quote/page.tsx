@@ -155,11 +155,9 @@ const GetAQuotePage = () => {
             H2={<>Get a Quote</>}
             paragraphs={[
               <>
-                Embark on a transformative digital journey with Actoviz. Our
-                tailored solutions redefine success, ensuring your brand&apos;s
-                unique needs are precisely met. Request a quote today and
-                witness the power of strategic innovation, elevating your brand
-                to new heights in the dynamic digital landscape.
+                Get a customized quote for our premium software rental solutions. Whether you need a Learning Management System 
+                for your educational institution or an International Calling Dialer for global communication, we'll provide 
+                you with a tailored solution that fits your budget and requirements.
               </>,
             ]}
           />
@@ -363,42 +361,12 @@ export default GetAQuotePage;
 const ServicesList = [
   {
     id: 1,
-    value: "Google Paid Ads",
-    name: "googlePaidAds",
+    value: "Learning Management System (LMS)",
+    name: "lms",
   },
   {
     id: 2,
-    value: "Data Analytics",
-    name: "dataAnalytics",
-  },
-  {
-    id: 3,
-    value: "Custom Web Development",
-    name: "customWebDevelopment",
-  },
-  {
-    id: 4,
-    value: "Wordpress Development",
-    name: "wordpressDevelopment",
-  },
-  {
-    id: 5,
-    value: "Social Media Paid Ads",
-    name: "socialMediaPaidAds",
-  },
-  {
-    id: 6,
-    value: "Software Development",
-    name: "softwareDevelopment",
-  },
-  {
-    id: 7,
-    value: "Shopify Store Development",
-    name: "shopifyStoreDevelopment",
-  },
-  {
-    id: 8,
-    value: "UI/UX & Graphic Design",
-    name: "uiUxAndGraphicDesign",
+    value: "International Calling Dialer",
+    name: "dialer",
   },
 ];

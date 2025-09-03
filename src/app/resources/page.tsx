@@ -1,16 +1,7 @@
-import { Fragment } from "react";
-import ResourcesHero from "./_components/resources-hero";
-import ResourcesContent from "./_components/resources-content";
-import ResourcesCTA from "./_components/resources-cta";
+import { redirect } from "next/navigation";
 
 const ResourcesPage = () => {
-  return (
-    <Fragment>
-      <ResourcesHero />
-      <ResourcesContent />
-      <ResourcesCTA />
-    </Fragment>
-  );
+  redirect("/");
 };
 
 export default ResourcesPage;

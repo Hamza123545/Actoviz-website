@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://www.Actoviz.com/</loc>
   <lastmod>2023-12-12T20:38:45+00:00</lastmod>
   <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/reviews</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.Actoviz.com/about-us</loc>
@@ -28,52 +16,37 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://www.Actoviz.com/solutions</loc>
+  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.Actoviz.com/solutions/lms</loc>
+  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.Actoviz.com/solutions/dialer</loc>
+  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.Actoviz.com/pricing</loc>
+  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://www.Actoviz.com/get-a-quote</loc>
   <lastmod>2023-12-12T20:38:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.Actoviz.com/services/google-paid-ads</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/software-development</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/social-media-paid-ads</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/data-analytics</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/wordpress-development</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/shopify-store-development</loc>
+  <loc>https://www.Actoviz.com/get-a-free-consultation</loc>
   <lastmod>2023-12-12T20:38:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.Actoviz.com/services</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/ui-ux-and-graphic-design</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/services/content-writing-and-seo</loc>
   <lastmod>2023-12-12T20:38:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -87,41 +60,4 @@
   <lastmod>2023-12-12T20:38:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/google-paid-ads</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/social-media-paid-ads</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/data-analytics</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/wordpress-development</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/shopify-store-development</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/ui-ux-and-graphic-design</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.Actoviz.com/case-studies/content-writing-and-seo</loc>
-  <lastmod>2023-12-12T20:38:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
 </urlset>

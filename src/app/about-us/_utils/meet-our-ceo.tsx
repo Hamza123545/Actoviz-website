@@ -12,8 +12,8 @@ const MeetOurCEO = () => {
         </span>
         <div className="max-w-[250px] mx-auto md:mr-auto md:ml-0">
           <Image
-            src="/images/yeatiq.png"
-            alt="CEO"
+            src="/images/ceo-muhammad-farooq.png"
+            alt="CEO Muhammad Farooq"
             width={1000}
             height={1000}
             className="w-full h-full rounded-2xl"
@@ -21,15 +21,15 @@ const MeetOurCEO = () => {
         </div>
 
         <h2 className="text-primary">
-          Meet&nbsp;<span className="text-secondary">Yeatiqur Rahman</span>,
-          Visionary CEO and Top Rated Seller
+          Meet&nbsp;<span className="text-secondary">Muhammad Farooq</span>,
+          Visionary CEO and Technology Leader
         </h2>
 
         <p>
-          Yeatiq, the driving force behind Actoviz, serves as the CEO and is
-          recognized as a top-rated seller in the digital landscape. With an
-          unwavering commitment to excellence, Yeatiq brings experience and
-          expertise to the forefront.
+          Muhammad Farooq, the driving force behind Actoviz, serves as the CEO and is
+          a recognized technology leader in the digital landscape. With an
+          unwavering commitment to innovation and excellence, Muhammad brings extensive experience and
+          expertise to the forefront of software solutions.
         </p>
       </ANIM__FadeInOutOnScroll>
       <ANIM__FadeInOutOnScroll className="flex flex-col large-gap">
@@ -40,7 +40,7 @@ const MeetOurCEO = () => {
           <p>
             Active contributors to the digital landscape&nbsp;
             <span className="text-primary font-medium">since 2019</span>,
-            we&apos;ve accumulated invaluable experience and insights.
+            we&apos;ve accumulated invaluable experience and insights in software development and business solutions.
           </p>
         </ANIM__FadeInOutOnScroll>
         <ANIM__FadeInOutOnScroll className="flex flex-col small-gap">
@@ -61,9 +61,9 @@ const MeetOurCEO = () => {
               wings to Dubai{" "}
               <ArrowUpRight className="w-[12px] h-[12px] stroke-secondary group-hover:mb-2 transition ease-in-out duration-500" />
             </Link>
-            , adding a new chapter to its Journey. We envision Actoviz as a
-            catalyst for brands in Dubai, propelling them to new heights in the
-            digital realm
+            , adding a new chapter to its journey. We envision Actoviz as a
+            catalyst for businesses in Dubai, propelling them to new heights in the
+            digital realm.
           </p>
         </ANIM__FadeInOutOnScroll>
         <ANIM__FadeInOutOnScroll className="flex flex-col small-gap">
@@ -74,19 +74,15 @@ const MeetOurCEO = () => {
             </span>
           </h4>
           <p>
-            Yeatiq&apos;s mantra for success mirrors what every CEO aspires to
+            Muhammad&apos;s mantra for success mirrors what every CEO aspires to
             achieve - continuous innovation, elevation of standards, and
-            ultimate market domination.
-            <span className="text-primary font-medium">wings to Dubai</span>,
-            adding a new chapter to its Journey. We envision Actoviz as a
-            catalyst for brands in Dubai, propelling them to new heights in the
-            digital realm
+            ultimate market domination through cutting-edge technology solutions.
           </p>
         </ANIM__FadeInOutOnScroll>
         <div className="font-semibold text-primary">
-          Yeatiq and Actoviz are dedicated to making your brands fly and soar
+          Muhammad and Actoviz are dedicated to making your business thrive and soar
           in the digital skies. Let&apos;s chart the course for your
-          brand&apos;s digital success together!
+          business&apos;s digital success together!
         </div>
       </ANIM__FadeInOutOnScroll>
     </section>
