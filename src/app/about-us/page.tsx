@@ -16,7 +16,6 @@ import {
   Wand2Icon,
 } from "lucide-react";
 import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import MessageFromCEO from "./_utils/meet-our-ceo";
 
 const AboutUS = () => {

@@ -26,6 +26,7 @@ const HeroSection = ({
   cta?: ReactNode;
 }) => {
   const backgroundImage = `bg-[url('/images/backgrounds/HeroBackground.svg')]`;
+
   return (
     <AuroraBackground>
       <section className={`${backgroundImage} bg-center bg-cover`}>
@@ -33,26 +34,21 @@ const HeroSection = ({
           <ANIM__FadeInOnScroll className="order-2 lg:order-1 flex flex-col small-gap">
             <h1 className="text-primary [&>span]:text-secondary">{H1}</h1>
             <p className="hero-description">{P}</p>
-            {cta ? (
-              <div className="flex flex-wrap items-center small-gap">{cta}</div>
-            ) : null}
+            {cta && <div className="flex flex-wrap items-center small-gap">{cta}</div>}
           </ANIM__FadeInOnScroll>
+
           <ANIM__FadeInOnScroll className="order-1 lg:order-2">
-            {[
-              <div
-                key={1}
-              >
-                <iframe
-                  className="aspect-video w-full h-full rounded-2xl mx-auto border shadow-xl shadow-2xl"
-                  src={videoLink}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>,
-            ]}
+            <div>
+              <iframe
+                className="aspect-video w-full h-full rounded-2xl mx-auto border shadow-xl shadow-2xl"
+                src={videoLink}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
           </ANIM__FadeInOnScroll>
         </div>
       </section>

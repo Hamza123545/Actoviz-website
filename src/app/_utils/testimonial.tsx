@@ -9,7 +9,8 @@ import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
 import Calendly from "./calendly";
 
 const Testimonial = ({ data, calendly }: { data: any; calendly: boolean }) => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(2);
+  const [currentTestimonial, setCurrentTestimonial] = useState<number>(2);
+
   return (
     <section>
       <div className="bg-white">
@@ -21,34 +22,26 @@ const Testimonial = ({ data, calendly }: { data: any; calendly: boolean }) => {
           />
           <div className="flex flex-col items-center justify-center small-gap">
             <div className="grid grid-cols-3 gap-[5px] lg:gap-[25px]">
-              {data?.testimonialList.map(
-                (item: {
-                  id: number;
-                  name: string;
-                  country: string;
-                  imageSlug: string;
-                }) => {
-                  const { id, name, country, imageSlug } = item;
-                  return (
-                    <div key={id} onClick={() => setCurrentTestimonial(id)}>
-                      <TestimonialUserCard
-                        name={name}
-                        country={country}
-                        imageSlug={imageSlug}
-                        selected={id === currentTestimonial}
-                      />
-                    </div>
-                  );
-                }
-              )}
+              {/* Map over testimonialList and add key to each element */}
+              {data?.testimonialList.map((item: { id: number; name: string; country: string; imageSlug: string; testimonial: string }) => {
+                return (
+                  <div key={item.id} onClick={() => setCurrentTestimonial(item.id)}>
+                    <TestimonialUserCard
+                      name={item.name}
+                      country={item.country}
+                      imageSlug={item.imageSlug}
+                      selected={item.id === currentTestimonial}
+                    />
+                  </div>
+                );
+              })}
             </div>
             <ANIM__FadeInOutOnScroll className="max-w-[811px] min-w-[300px] bg-[url('/images/backgrounds/Quotes.svg')] bg-center bg-contain bg-no-repeat flex items-center justify-center">
               <p className="text-center text-xl p-[16.5px] italic leading-loose">
-                {
-                  data.testimonialList.find(
-                    (item: any) => item.id === currentTestimonial
-                  )?.testimonial
-                }
+                {/* Display the current testimonial's text */}
+                {data?.testimonialList.find(
+                  (item: any) => item.id === currentTestimonial
+                )?.testimonial}
               </p>
             </ANIM__FadeInOutOnScroll>
           </div>
@@ -62,6 +55,7 @@ const Testimonial = ({ data, calendly }: { data: any; calendly: boolean }) => {
           </Link>
         </div>
       </div>
+      {/* Conditionally render Calendly if passed */}
       {calendly ? <Calendly /> : null}
     </section>
   );

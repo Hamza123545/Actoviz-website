@@ -6,6 +6,8 @@ import { useState } from "react";
 interface FileUploadWidgetProps {
     onUpload: (url: string) => void;
     className?: string;
+    name?: string;  
+    label?: string;
 }
 
 const FileUploadWidget = ({ onUpload, className }: FileUploadWidgetProps) => {

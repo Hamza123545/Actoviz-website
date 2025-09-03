@@ -1,20 +1,18 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { Form } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
 import C__Input from "./input";
 import CLD__UploadWidget from "./cld-upload-widget";
 import { Action___POST__Review } from "./actions";
 import CustomSelect from "@/app/joining/_utils/custom-select";
-import { T__SlugType } from "@/app/services/[slug]/page";
 import CustomInput from "@/app/joining/_utils/custom-input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-// Define the schema using Zod
 const FormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   rating: z.number().min(0, { message: "Rating is required" }).max(5),
@@ -42,8 +40,13 @@ export default function ReviewPostForm() {
     },
   });
 
+  const onUpload = (url: string) => {
+    console.log("Uploaded file URL:", url);
+    // You can update form fields or take any other action here.
+    form.setValue("avatar", url); // For example, set the URL as the avatar
+  };
+
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    // Combine the form data with the uploaded image URL
     const formData = { ...data };
     const result = await Action___POST__Review(formData);
 
@@ -69,28 +72,20 @@ export default function ReviewPostForm() {
           label="Category"
           options={categoryOptions}
         />
-        <CustomInput
-          
-          name="text"
-          label="Client's Message"
-          type="textarea"
-        />
+        <CustomInput name="text" label="Client's Message" type="textarea" />
         <CustomInput name="company" label="Client's Company" />
-        <CustomInput
-          
-          name="country"
-          label="Company location (Country)"
-        />
+        <CustomInput name="country" label="Company location (Country)" />
 
+        {/* Pass the `onUpload` function here */}
         <CLD__UploadWidget
-          
           name="avatar"
           label="Client's Avatar/Profile picture"
+          onUpload={onUpload}
         />
         <CLD__UploadWidget
-          
           name="image"
           label="Review Image (Fiverr/Other marketplace Review Screenshot/image)"
+          onUpload={onUpload}
         />
 
         <Button type="submit">Submit</Button>
@@ -99,37 +94,13 @@ export default function ReviewPostForm() {
   );
 }
 
-const categoryOptions: { label: string; value: T__SlugType }[] = [
-  {
-    label: "Google Ads",
-    value: "googleads",
-  },
-  {
-    label: "Google Analytics",
-    value: "googleanalytics",
-  },
-  {
-    label: "Social Media Paid Ads",
-    value: "socialmediapaidads",
-  },
-  {
-    label: "UI/UX & Graphic Design",
-    value: "uiux",
-  },
-  {
-    label: "Custom Web Development",
-    value: "customwebdev",
-  },
-  {
-    label: "Software Development",
-    value: "software",
-  },
-  {
-    label: "Wordpress Development",
-    value: "wordpress",
-  },
-  {
-    label: "Shopify Development",
-    value: "shopify",
-  },
+const categoryOptions: { label: string; value: string }[] = [
+  { label: "Google Ads", value: "googleads" },
+  { label: "Google Analytics", value: "googleanalytics" },
+  { label: "Social Media Paid Ads", value: "socialmediapaidads" },
+  { label: "UI/UX & Graphic Design", value: "uiux" },
+  { label: "Custom Web Development", value: "customwebdev" },
+  { label: "Software Development", value: "software" },
+  { label: "Wordpress Development", value: "wordpress" },
+  { label: "Shopify Development", value: "shopify" },
 ];

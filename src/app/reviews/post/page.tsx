@@ -7,7 +7,17 @@ import DeleteReview from "./_utils/delete-review";
 
 const Page = async () => {
   const reviews = await A___Reviews__GetAll();
-  return null;
+
+  // If reviews are undefined or empty, show a fallback message
+  if (!reviews?.result?.length) {
+    return (
+      <section className="container section space-y-4">
+        <h2>All Reviews</h2>
+        <div>No reviews found! Please add a new one.</div>
+      </section>
+    );
+  }
+
   return (
     <>
       <section className="container section space-y-4">
@@ -19,27 +29,23 @@ const Page = async () => {
       <section className="container section space-y-4">
         <h2>All Reviews</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {reviews?.result?.length ? (
-            reviews.result.map((review: any, index: number) => {
-              return (
-                <div
-                  key={review?._id}
-                  className="border rounded-2xl p-1 flex flex-col items-center justify-center"
-                >
-                  <TestimonialCard details={review} />
-                  <div className="py-2 flex items-center gap-2">
-                    <div className="p-2 bg-gray-200 border">{index + 1}</div>
-                    <Button size="icon" variant="outline" disabled>
-                      <Edit />
-                    </Button>
-                    <DeleteReview id={review?._id} />
-                  </div>
+          {reviews.result.map((review: any, index: number) => {
+            return (
+              <div
+                key={review?._id}
+                className="border rounded-2xl p-1 flex flex-col items-center justify-center"
+              >
+                <TestimonialCard details={review} />
+                <div className="py-2 flex items-center gap-2">
+                  <div className="p-2 bg-gray-200 border">{index + 1}</div>
+                  <Button size="icon" variant="outline" disabled>
+                    <Edit />
+                  </Button>
+                  <DeleteReview id={review?._id} />
                 </div>
-              );
-            })
-          ) : (
-            <div>No review found! Please add newone.</div>
-          )}
+              </div>
+            );
+          })}
         </div>
       </section>
     </>

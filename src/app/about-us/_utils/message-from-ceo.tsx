@@ -22,7 +22,7 @@ const MessageFromCEO = ({
         <ul className="space-y-4">
           {paragraphs.map((paragraph, index) => (
             <li
-              key={`paragraph-${index}-${typeof paragraph === 'string' ? paragraph.substring(0, 20) : 'content'}`}
+              key={`paragraph-${index}-${typeof paragraph === 'string' ? (paragraph as string).substring(0, 20) : 'content'}`}
               className="leading-loose text-gray-600 [&>span]:font-medium [&>span]:mx-1"
             >
               {paragraph}

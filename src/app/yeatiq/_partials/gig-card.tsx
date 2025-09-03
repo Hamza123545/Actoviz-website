@@ -78,7 +78,7 @@ export function GigCard({ gig }: { gig: Gig }) {
 
           <div className="flex flex-wrap items-center gap-2">
             <Link
-              href="https://wa.me/+971507477541"
+              href="https://wa.me/+17078817969"
               passHref={true}
               target="_blank"
             >

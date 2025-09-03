@@ -141,7 +141,7 @@ const ContactUs = () => {
       id: 0,
       icon: <Phone />,
       title: "Make a Call",
-      info: "+971507477541",
+      info: "+17078817969",
     },
     {
       id: 1,
@@ -153,7 +153,7 @@ const ContactUs = () => {
       id: 2,
       icon: <MessageCircle />,
       title: "WhatsApp",
-      info: "+971507477541",
+      info: "+17078817969",
     },
   ];
   return (

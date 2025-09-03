@@ -5,7 +5,7 @@ import Campaigns from "@/components/assets/campaigns";
 export const homeFeaturesData = [
   {
     id: 1,
-    image: <CodeCloud key="lms-icon" />,
+    image: <CodeCloud />,
     title: "Learning Management System (LMS)",
     description: (
       <>
@@ -17,7 +17,7 @@ export const homeFeaturesData = [
   },
   {
     id: 2,
-    image: <Campaigns key="dialer-icon" />,
+    image: <Campaigns />,
     title: "International Calling Dialer",
     description: (
       <>
