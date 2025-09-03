@@ -1,0 +1,154 @@
+import Link from "next/link";
+
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+import BrandLogo from "../assets/brandlogo";
+import ANIM__FadeInOutOnScroll from "../anims/fadein.anim";
+
+const Footer = () => {
+  return (
+    <footer className="bg-gradient-to-b from-primary via-primary to-secondary [&>*]:text-white">
+      <div className="h-2 bg-gradient-to-r from-secondary/5 via-secondary to-secondary/5"></div>
+      <div className="section container">
+        <section className="flex flex-col sm:flex-row flex-wrap items-start justify-between large-gap md:small-gap">
+          <ANIM__FadeInOutOnScroll className="order-4 md:order-first w-full md:w-auto">
+            <div className="small-gap">
+              <BrandLogo dark={true} />
+            </div>
+            <p className="py-[25px]">
+              Leading software rental platform providing premium business applications on flexible subscription plans.
+            </p>
+            <div className="text-icon py-[25px]">
+              <p className="pb-[25px]">Stay Updated with Our Latest Solutions</p>
+              <div className="icons flex flex-row small-gap">
+                <Link
+                  href="https://www.facebook.com/actoviz"
+                  target="_blank"
+                >
+                  <Facebook className=" cursor-pointer stroke-[1.3px] hover:stroke-secondary" />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/company/actoviz/"
+                  target="_blank"
+                >
+                  <Linkedin className=" cursor-pointer stroke-[1.3px] hover:stroke-secondary" />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/actoviz"
+                  target="_blank"
+                >
+                  <Instagram className=" cursor-pointer stroke-[1.3px] hover:stroke-secondary" />
+                </Link>
+              </div>
+            </div>
+            <p className="pt-[25px]">
+              © {new Date().getFullYear()}. All rights reserved
+            </p>
+          </ANIM__FadeInOutOnScroll>
+
+          {HeadingLinks.map((item) => {
+            return (
+              <ANIM__FadeInOutOnScroll
+                key={item.id}
+                className=" flex flex-col items-start flex-start small-gap md:flex-start"
+              >
+                <h4 className="font-medium text-white text-lg md:text-xl">
+                  {item.title}
+                </h4>
+                {item.links.map((link) => {
+                  return (
+                    <Link
+                      key={link.id}
+                      href={link.link}
+                      className="hover:text-secondary"
+                    >
+                      {link.text}
+                    </Link>
+                  );
+                })}
+              </ANIM__FadeInOutOnScroll>
+            );
+          })}
+        </section>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+const HeadingLinks = [
+  {
+    id: 0,
+    title: "Company",
+    links: [
+      {
+        id: 0,
+        text: "Home",
+        link: "/",
+      },
+      {
+        id: 1,
+        text: "Solutions",
+        link: "/solutions",
+      },
+      {
+        id: 2,
+        text: "Pricing",
+        link: "/pricing",
+      },
+      {
+        id: 3,
+        text: "About us",
+        link: "/about-us",
+      },
+      {
+        id: 4,
+        text: "Contact us",
+        link: "/contact-us",
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "Solutions",
+    links: [
+      {
+        id: 0,
+        text: "Learning Management System",
+        link: "/solutions/lms",
+      },
+      {
+        id: 1,
+        text: "International Calling Dialer",
+        link: "/solutions/dialer",
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    title: "Support",
+    links: [
+      {
+        id: 0,
+        text: "Help Center",
+        link: "/help",
+      },
+      {
+        id: 1,
+        text: "Documentation",
+        link: "/docs",
+      },
+      {
+        id: 2,
+        text: "API Reference",
+        link: "/api",
+      },
+      {
+        id: 3,
+        text: "Training Resources",
+        link: "/training",
+      },
+    ],
+  },
+];

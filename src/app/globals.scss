@@ -1,0 +1,265 @@
+@use "sass:math";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 244 49% 17%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 223 100% 54%;
+    --decade: 34 100% 66%;
+    --secondary-muted: 242 76% 90%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 207 27% 92%;
+    --dimmed: 246 10% 37%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 247 82% 98%;
+    --accent-foreground: 241 77% 63%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: math.unit($min-vw);
+  $u2: math.unit($max-vw);
+  $u3: math.unit($min-font-size);
+  $u4: math.unit($max-font-size);
+
+  @if $u1 ==$u2 and $u1 ==$u3 and $u1 ==$u4 {
+    & {
+      font-size: $min-font-size;
+
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+$min_width: 320px;
+$max_width: 1196px;
+$p_min_font: 16px;
+$p_max_font: 16px;
+$h1_min_font: 28px;
+$h1_max_font: 44px;
+$h2_min_font: 22px;
+$h2_max_font: 32px;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @include fluid-type($min_width, $max_width, $p_min_font, $p_max_font);
+    @apply m-0 p-0 box-border min-w-0;
+    
+    & {
+      line-height: 160%;
+    }
+  }
+}
+
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
+
+h1,
+h2 {
+  @apply font-[var(--font-lato)];
+  font-weight: 600;
+}
+
+h1 {
+  @include fluid-type($min_width, $max_width, $h1_min_font, $h1_max_font);
+  // @apply font-semibold;
+  & {
+    line-height: 120%;
+  }
+
+
+  span {
+    @include fluid-type($min_width, $max_width, $h1_min_font, $h1_max_font);
+    // @apply font-semibold;
+    & {
+      line-height: 120%;
+    }
+  }
+}
+
+
+h2 {
+
+  @include fluid-type($min_width, $max_width, $h2_min_font, $h2_max_font);
+  // @apply font-semibold;
+  & {
+    line-height: 120%;
+  }
+
+
+  span {
+    @include fluid-type($min_width, $max_width, $h2_min_font, $h2_max_font);
+    // @apply font-semibold;
+    & {
+      line-height: 120%;
+    }
+  }
+}
+
+.container {
+  @apply max-w-[1196px] min-w-[300px] px-[10px] sm:px-[20px];
+}
+
+.section {
+  @apply py-[80px];
+}
+
+.small-gap {
+  @apply gap-[25px];
+}
+
+.large-gap {
+  @apply gap-[50px];
+}
+
+.hero-description {
+  @apply text-sm md:text-base;
+
+  span {
+    @apply font-semibold text-primary;
+  }
+}
+
+// senja customization
+.sj-card {
+  box-shadow: none !important;
+}
+
+.arrow {
+  background: none !important;
+  width: 50px !important;
+  height: 50px !important;
+  border: 1px solid hsl(var(--secondary-muted)) !important;
+  @apply backdrop-blur flex items-center justify-center border shadow-xl;
+
+  svg {
+    @apply w-[40px] h-[40px] stroke-[1.3] stroke-secondary;
+  }
+}
+
+// custom selection
+::-moz-selection {
+  @apply bg-blue-400;
+}
+
+::selection {
+  @apply bg-blue-400;
+}
+
+// custom scroll bar
+/* width */
+::-webkit-scrollbar {
+  @apply w-[4px] h-[4px];
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply rounded-[10px];
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary rounded-[10px];
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary/60 rounded-[10px];
+}
+
+
+
+.swiper-slide {
+  height: calc((100% - 30px) / 2) !important;
+}
+
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform-origin: center bottom;
+  animation: fall 4s linear infinite;
+}
+
+.confetti.square {
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+}
+
+.confetti.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes fall {
+  10% {
+    transform: translateY(-3h) rotate(120deg);
+  }
+
+  20% {
+    transform: translateY(20vh) rotate(720deg);
+  }
+
+  60% {
+    transform: translateY(70vh) rotate(120deg);
+  }
+
+  90% {
+    transform: translateY(90vh) rotate(720deg);
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(120deg);
+  }
+}
+
+svg {
+  * {
+    @apply antialiased;
+
+    shape-rendering: geometricPrecision;
+    // image-rendering: -webkit-optimize-contrast;
+    text-rendering: optimizeLegibility;
+    image-rendering: auto;
+  }
+}
