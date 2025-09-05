@@ -7,9 +7,14 @@ const PricingFAQ = () => {
 
   const faqs = [
     {
-      id: "free-trial",
-      question: "What's included in the free trial?",
-      answer: "Our 14-day free trial includes full access to all features of your chosen plan, with no credit card required. You can explore the software, create content, and test all functionality before making a decision."
+      id: "lms-pricing",
+      question: "How does the LMS pricing work?",
+      answer: "Our LMS pricing is based on the number of students. You can choose between monthly billing (170 PKR per student per month) or annual billing (1,700 PKR per student per year, which saves you 2 months). You'll receive complete login details to access the web application. For institutions with 1000+ students, we offer custom enterprise pricing."
+    },
+    {
+      id: "dialer-pricing",
+      question: "What's included in the International Dialer pricing?",
+      answer: "The dialer costs $10 USD per admin account per month. This includes complete administrative access, user management, analytics, and full web application access. You'll receive complete login details to access the web application. Calling minutes are charged separately based on international rates (starting from $0.02 per minute for countries like India and Pakistan)."
     },
     {
       id: "change-plans",
@@ -19,7 +24,7 @@ const PricingFAQ = () => {
     {
       id: "annual-discounts",
       question: "Do you offer annual billing discounts?",
-      answer: "Yes, we offer significant discounts for annual billing. Annual plans typically save you 20-30% compared to monthly billing, making it a great option for businesses looking to optimize costs."
+      answer: "Yes! Our LMS annual plan offers significant savings - you get 2 months free when you pay annually (1,700 PKR per student per year vs 2,040 PKR if paid monthly). This represents a 17% discount."
     },
     {
       id: "data-cancellation",
@@ -29,22 +34,22 @@ const PricingFAQ = () => {
     {
       id: "hidden-costs",
       question: "Is there a setup fee or hidden costs?",
-      answer: "No hidden costs! Our pricing is transparent and includes everything you need: software access, updates, security, support, and training. The only additional cost would be if you need custom integrations or consulting services."
+      answer: "No hidden costs! Our pricing is transparent and includes everything you need: software access, updates, security, support, and training. The only additional costs are calling minutes for the dialer service (pay-per-use) and any custom integrations you might need."
     },
     {
       id: "support",
       question: "What kind of support do you provide?",
-      answer: "All plans include email support, with priority support for Professional and Enterprise plans. Enterprise customers get 24/7 phone support and a dedicated account manager. We also provide comprehensive documentation and training resources."
+      answer: "All plans include email support. Annual LMS subscribers get priority support, and enterprise customers get dedicated support. We also provide comprehensive documentation, training resources, and onboarding assistance."
     },
     {
       id: "custom-plans",
       question: "Can I get a custom plan for my organization?",
-      answer: "Absolutely! We work with organizations of all sizes to create custom plans that fit their specific needs and budget. Contact our sales team to discuss your requirements and get a personalized quote."
+      answer: "Absolutely! We work with organizations of all sizes to create custom plans that fit their specific needs and budget. For large institutions (1000+ students) or complex requirements, contact our sales team for personalized enterprise solutions."
     },
     {
-      id: "security-compliance",
-      question: "How do you handle security and compliance?",
-      answer: "Security is our top priority. We use enterprise-grade security measures, regular security audits, and maintain compliance with industry standards like SOC 2, GDPR, and HIPAA. All data is encrypted and backed up regularly."
+      id: "web-access",
+      question: "How do I access the software applications?",
+      answer: "Both our LMS and International Dialer are web-based applications. Once you subscribe, we'll provide you with complete login details including username, password, and web application URL. You can access the software from any web browser on any device - no installation required."
     }
   ];
 

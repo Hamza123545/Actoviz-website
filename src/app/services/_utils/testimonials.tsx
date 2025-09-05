@@ -1,210 +1,63 @@
-"use client";
-
-import ServicesCTA from "@/components/molecule/services-cta";
-import Tagline from "@/components/molecule/tagline";
-import { Sparkle } from "lucide-react";
-import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import clsx from "clsx";
-import MarqueeWrapper from "./marquee-wrapper";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Sparkle } from "lucide-react";
 
-const Testimonials = ({
-  data,
-  hideCTA,
-  seeAllReview = false,
-  mutedBG = false,
-}: {
-  data: any;
-  hideCTA?: boolean;
-  seeAllReview?: boolean;
-  mutedBG?: boolean;
-}) => {
-  const pathname = usePathname();
-  const materedPath = pathname
-    ?.replaceAll("/services/", "")
-    ?.replaceAll("-", "");
-  const path: any = {
-    googleads: "googleads",
-    googleanalytics: "googleanalytics",
-    socialmediapaidads: "socialmediapaidads",
-    softwaredevelopment: "software",
-    shopifydevelopment: "shopify",
-    customwebdevelopment: "customwebdev",
-    uiux: "uiux",
+interface TestimonialCardProps {
+  details: {
+    _id: string;
+    name: string;
+    rating: number;
+    category: string;
+    text: string;
+    avatar: string;
+    company: string;
+    country: string;
+    image: string;
+    date: string;
   };
+}
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const filteredData =
-    data?.filter((item: any) => item.text?.length < 100) || [];
-
+export const TestimonialCard = ({ details }: TestimonialCardProps) => {
   return (
-    <div
-      className={clsx("py-16", {
-        "bg-muted": mutedBG,
-      })}
-    >
-      <ANIM__FadeInOutOnScroll>
-        <div className="container flex flex-col items-center justify-center gap-[32px]">
-          <Tagline text={<>Testimonials</>} />
-          <h2 className="h2 text-primary text-center">
-            Checkout What Our
-            <br />
-            <span className="text-secondary relative">Customers</span>
-            &nbsp;Have To Say
-          </h2>
-        </div>
-      </ANIM__FadeInOutOnScroll>
-      <div className="space-y-8">
-        <div className="relative container">
-          {isClient && (
-            <MarqueeWrapper
-              className="gap-4 w-full"
-              itemWidth={300}
-              gapWidth={16}
-            >
-              {filteredData?.slice(0, 10)?.map((item: any, index: number) => {
-                return (
-                  <TestimonialCard
-                    key={item._id || `testimonial-${index}-${item.name?.substring(0, 10) || 'unknown'}`}
-                    details={item}
-                    className="flex-shrink-0"
-                  />
-                );
-              })}
-            </MarqueeWrapper>
-          )}
-          <div
-            className={clsx(
-              "pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r dark:from-background",
-              {
-                "from-muted": mutedBG,
-                "from-background": !mutedBG,
-              }
-            )}
-          ></div>
-          <div
-            className={clsx(
-              "pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l dark:from-background",
-              {
-                "from-muted": mutedBG,
-                "from-background": !mutedBG,
-              }
-            )}
-          ></div>
-        </div>
-        <div className="flex justify-center px-4">
-          {!hideCTA ? (
-            <ServicesCTA
-              position="center"
-              cta={{
-                primary: {
-                  text: <>Get Started Right Away</>,
-                  link: `/joining?type=${path[materedPath]}`,
-                },
-                secondary: { text: <>Get A Free Consultation</>, link: "/" },
-              }}
-            />
-          ) : null}
-          {seeAllReview ? (
-            <Link href="/reviews">
-              <Button variant="outline">See all reviews</Button>
-            </Link>
-          ) : null}
-        </div>
+    <div className="relative max-w-[400px] rounded-2xl border px-8 py-6 bg-white w-full flex flex-col">
+      <div className="flex mb-4">
+        {Array.from({ length: details.rating || 1 }, (_, index) => (
+          <Sparkle key={index} className="rotate-45 text-secondary fill-secondary/40" />
+        ))}
       </div>
-    </div>
-  );
-};
-
-export const TestimonialCard = ({
-  details,
-  className = "",
-}: {
-  details: any;
-  className?: string;
-}) => {
-  const {
-    _id,
-    name,
-    rating,
-    category,
-    text,
-    avatar,
-    company,
-    country,
-    image,
-    date,
-  } = details;
-  const createArray = (n: number): number[] => {
-    return Array.from({ length: n }, (_, i) => i + 1);
-  };
-  const [moreText, setMoreText] = useState(false);
-
-  const letterCount = 100;
-  return (
-    <div
-      className={`w-[300px] shrink-0 mx-2 hover:shadow-lg p-4 rounded-2xl space-y-[16px] border-2 border-white hover:border-secondary hover:scale-105 bg-white transition ease-in-out duration-500 ${className}`}
-    >
-      <div className="flex">
-        {createArray(rating || 1).map((item: number) => {
-          return (
-            <Sparkle
-              key={item}
-              className="rotate-45 text-secondary fill-secondary/40"
-            />
-          );
-        })}
-      </div>
-      <p
-        className={clsx(
-          "text-sm leading-relaxed",
-          moreText ? "h-auto" : "line-clamp-4"
-        )}
-      >
-        <i>{`"${text}"`}</i>
-        {text?.length > letterCount && (
-          <span
-            role="button"
-            onClick={() => setMoreText(!moreText)}
-            className="text-secondary text-xs ml-1"
-          >
-            {moreText ? "See less" : "See more"}
-          </span>
-        )}
+      
+      <p className="relative text-sm leading-[1.6] font-normal mb-4 line-clamp-3">
+        {details.text}
       </p>
-      <div className="flex items-center gap-4">
-        <Image
-          src={avatar || ""}
-          alt=""
-          width={40}
-          height={40}
-          className="h-10 w-10 rounded-full bg-gray-200 object-cover"
-        />
-        <div>
-          <p className="font-semibold text-sm">{name}</p>
-          <p className="text-gray-400 text-xs">{country}</p>
+      
+      <div className="relative mt-auto flex items-center">
+        <div className="flex items-center gap-3">
+          <div className="relative h-10 w-10 rounded-full overflow-hidden">
+            <Image
+              src={details.avatar || "/images/flags/usa.svg"}
+              alt={details.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm font-medium">{details.name}</span>
+            <span className="text-xs text-muted-foreground">
+              {details.company} • {details.country}
+            </span>
+          </div>
         </div>
       </div>
-      {image && (
-        <Image
-          src={image}
-          alt=""
-          width={300}
-          height={200}
-          className="w-full h-auto rounded-md bg-gray-200 object-cover"
-        />
+      
+      {details.image && (
+        <div className="mt-4 relative h-32 w-full rounded-lg overflow-hidden">
+          <Image
+            src={details.image}
+            alt="Review image"
+            fill
+            className="object-cover"
+          />
+        </div>
       )}
     </div>
   );
 };
-
-export default Testimonials;

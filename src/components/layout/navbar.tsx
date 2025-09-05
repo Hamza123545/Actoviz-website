@@ -241,6 +241,11 @@ const Links = [
   },
   {
     id: 3,
+    text: "Services",
+    link: "/services",
+  },
+  {
+    id: 4,
     text: "Pricing",
     link: "/pricing",
   },

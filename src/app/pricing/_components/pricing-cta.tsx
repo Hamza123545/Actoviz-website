@@ -6,11 +6,11 @@ const PricingCTA = () => {
   const benefits = [
     {
       icon: <CheckCircle className="w-6 h-6 text-green-500" />,
-      text: "14-day free trial with full access"
+      text: "No upfront costs or setup fees"
     },
     {
       icon: <CheckCircle className="w-6 h-6 text-green-500" />,
-      text: "No setup fees or hidden costs"
+      text: "Flexible monthly billing"
     },
     {
       icon: <CheckCircle className="w-6 h-6 text-green-500" />,
@@ -18,7 +18,7 @@ const PricingCTA = () => {
     },
     {
       icon: <CheckCircle className="w-6 h-6 text-green-500" />,
-      text: "24/7 technical support included"
+      text: "Priority support included"
     }
   ];
 
@@ -45,12 +45,12 @@ const PricingCTA = () => {
       <div className="container">
         <div className="text-center text-white mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Business?
+            Ready to Rent Premium Software?
           </h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            Join thousands of businesses that have already discovered the benefits 
-            of software rental. Start your free trial today and experience the 
-            difference that Actoviz can make.
+            Join businesses that have discovered the benefits of software rental. 
+            Get access to enterprise-grade LMS and International Dialer solutions 
+            without the upfront investment.
           </p>
         </div>
 
@@ -76,18 +76,18 @@ const PricingCTA = () => {
                 Get Started in Minutes
               </h4>
               <p className="text-white opacity-80">
-                No complex setup or technical expertise required. Our intuitive 
-                platform gets you up and running quickly, so you can focus on 
-                what matters most - growing your business.
+                No complex setup or technical expertise required. Our cloud-based 
+                solutions get you up and running quickly, so you can focus on 
+                what matters most - managing your students or making international calls.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" variant="secondary">
-                <Link href="/contact-us">Start Free Trial</Link>
+                <Link href="/contact-us">Get Started Now</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
-                <Link href="/contact-us">Schedule Demo</Link>
+                <Link href="/contact-us">Request Demo</Link>
               </Button>
             </div>
           </div>
@@ -115,12 +115,12 @@ const PricingCTA = () => {
                 What Our Customers Say
               </h4>
               <blockquote className="text-white opacity-90 italic">
-                "Actoviz transformed how we access business software. The rental model 
-                saved us thousands in upfront costs, and the quality is enterprise-grade. 
+                "Actoviz's LMS solution transformed our Quran center management. The rental model 
+                saved us thousands in upfront costs, and the features are exactly what we needed. 
                 Highly recommended!"
               </blockquote>
               <div className="mt-4 text-white opacity-80">
-                <strong>Sarah Johnson</strong> - CEO, TechStart Inc.
+                <strong>Ahmed Hassan</strong> - Director, Al-Noor Quran Center
               </div>
             </div>
           </div>

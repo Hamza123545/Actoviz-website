@@ -1,7 +1,20 @@
-import { ReactElement } from "react";
+import { Metadata } from "next";
 
-const ServicesLayout = ({ children }: { children: ReactElement }) => {
-  return <div>{children}</div>;
+export const metadata: Metadata = {
+  title: "Our Services - Actoviz | Comprehensive Technology Solutions",
+  description: "Explore our comprehensive technology services including custom chatbot AI integrations, web development, complex web app development, mobile apps, and more. Transform your business with our expert solutions.",
+  keywords: "technology services, web development, AI chatbot, mobile app development, database integration, cloud solutions, custom software development",
+  openGraph: {
+    title: "Our Services - Actoviz | Comprehensive Technology Solutions",
+    description: "Explore our comprehensive technology services including custom chatbot AI integrations, web development, complex web app development, mobile apps, and more.",
+    type: "website",
+  },
 };
 
-export default ServicesLayout;
+export default function ServicesLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}

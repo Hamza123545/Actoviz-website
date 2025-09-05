@@ -74,13 +74,13 @@ const MeetOurCEO = () => {
             </span>
           </h4>
           <p>
-            Muhammad&apos;s mantra for success mirrors what every CEO aspires to
+            Muhammad Farooq's for success mirrors what every CEO aspires to
             achieve - continuous innovation, elevation of standards, and
             ultimate market domination through cutting-edge technology solutions.
           </p>
         </ANIM__FadeInOutOnScroll>
         <div className="font-semibold text-primary">
-          Muhammad and Actoviz are dedicated to making your business thrive and soar
+          Muhammad Farooq and Actoviz are dedicated to making your business thrive and soar
           in the digital skies. Let&apos;s chart the course for your
           business&apos;s digital success together!
         </div>

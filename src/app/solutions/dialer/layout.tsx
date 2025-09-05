@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "International Calling Dialer | Actoviz - Software Rental Platform",
-  description: "Break down geographical barriers with our advanced international calling solution. Connect with customers worldwide, reduce costs, and expand your global reach.",
-  keywords: "international calling, dialer, global communication, international business, VoIP, international phone calls, business communication",
+  title: "Actoviz Web Dialer | Professional Cloud-Based Calling Solution",
+  description: "Complete voice communication platform for sales teams, customer support, and business operations. Manage calls, track performance, and scale your communication with our comprehensive, cloud-based dialer.",
+  keywords: "Actoviz Web Dialer, cloud-based dialer, business communication, call management, call recording, call analytics, web dialer, professional calling solution, sales dialer, customer support dialer",
 };
 
 export default function DialerLayout({

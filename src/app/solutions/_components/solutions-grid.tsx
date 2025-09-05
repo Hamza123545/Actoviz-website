@@ -9,30 +9,30 @@ const SolutionsGrid = () => {
   const solutions = [
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: "Learning Management System (LMS)",
-      description: "Complete e-learning platform for educational institutions and corporate training",
+      title: "Quran Tutor Management System",
+      description: "Comprehensive learning management platform for Islamic educational institutions and Quran centers",
       features: [
-        "Course creation and management",
-        "Student progress tracking",
-        "Assessment tools",
-        "Video conferencing integration",
-        "Mobile learning support",
-        "Advanced analytics"
+        "Student and tutor management",
+        "Financial management and invoicing",
+        "Class scheduling and attendance",
+        "Progress tracking and analytics",
+        "Mobile app and web access",
+        "Multi-currency payment support"
       ],
       category: "Education",
       link: "/solutions/lms"
     },
     {
       icon: <Phone className="w-8 h-8" />,
-      title: "International Calling Dialer",
-      description: "Professional calling solution for global communication with advanced features",
+      title: "Actoviz Web Dialer",
+      description: "Professional cloud-based calling solution for sales teams, customer support, and business operations",
       features: [
-        "Global calling capabilities",
+        "Web-based dialer interface",
         "Call recording and analytics",
-        "CRM integration",
-        "Multi-language support",
-        "Call scheduling",
-        "Advanced reporting"
+        "Multi-user management",
+        "Pay-per-minute billing",
+        "Global calling support",
+        "CRM integration"
       ],
       category: "Communication",
       link: "/solutions/dialer"
@@ -49,8 +49,8 @@ const SolutionsGrid = () => {
             Our Software Solutions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From learning management to international calling, we offer focused solutions 
-            designed to meet your specific business needs.
+            From Islamic educational management to international calling, we offer focused solutions 
+            designed to meet your specific business and educational needs.
           </p>
         </div>
 

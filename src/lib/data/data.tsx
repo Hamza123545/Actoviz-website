@@ -32,6 +32,74 @@ export const homeFeaturesData = [
     ],
     link: "/solutions/dialer",
   },
+  {
+    id: 3,
+    image: <CodeCloud />,
+    title: "Custom Chatbot AI Integrations",
+    description: (
+      <>
+        Intelligent <span>conversational AI</span> solutions tailored to your business needs.
+      </>
+    ),
+    list: [
+      "Natural Language Processing",
+      "Multi-platform Integration",
+      "Custom Training Models",
+      "Real-time Analytics",
+    ],
+    link: "/services",
+  },
+  {
+    id: 4,
+    image: <Campaigns />,
+    title: "Web Development",
+    description: (
+      <>
+        Modern, responsive <span>websites</span> built with cutting-edge technologies.
+      </>
+    ),
+    list: [
+      "Responsive Design",
+      "SEO Optimization",
+      "Fast Loading Speed",
+      "Content Management System",
+    ],
+    link: "/services",
+  },
+  {
+    id: 5,
+    image: <CodeCloud />,
+    title: "Complex Web App Development",
+    description: (
+      <>
+        Enterprise-grade <span>web applications</span> with advanced functionality.
+      </>
+    ),
+    list: [
+      "Scalable Architecture",
+      "Database Integration",
+      "API Development",
+      "Real-time Features",
+    ],
+    link: "/services",
+  },
+  {
+    id: 6,
+    image: <Campaigns />,
+    title: "Mobile App Development",
+    description: (
+      <>
+        Native and cross-platform <span>mobile applications</span> for iOS and Android.
+      </>
+    ),
+    list: [
+      "iOS & Android Development",
+      "Cross-platform Solutions",
+      "App Store Optimization",
+      "Push Notifications",
+    ],
+    link: "/services",
+  },
 ];
 
 export const homeTestimonialData = {

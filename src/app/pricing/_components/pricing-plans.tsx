@@ -5,74 +5,77 @@ import Link from "next/link";
 const PricingPlans = () => {
   const plans = [
     {
-      name: "Starter",
-      price: "$29",
-      period: "/month",
-      description: "Perfect for small businesses and startups",
+      name: "LMS - Monthly",
+      price: "170",
+      currency: "PKR",
+      period: "/student/month",
+      description: "Perfect for small to medium Quran centers",
       features: [
-        "Up to 10 users",
-        "Basic LMS features",
+        "Complete student management",
+        "Tutor management system",
+        "Class scheduling",
+        "Basic financial management",
+        "Progress tracking",
         "Email support",
-        "Standard integrations",
-        "Basic reporting",
-        "Mobile app access"
+        "Complete web application access"
       ],
       notIncluded: [
         "Advanced analytics",
-        "Custom branding",
         "Priority support",
-        "API access"
+        "API integration",
+        "Mobile application"
       ],
       popular: false,
-      cta: "Start Free Trial",
+      cta: "Get Started",
       link: "/contact-us"
     },
     {
-      name: "Professional",
-      price: "$79",
-      period: "/month",
-      description: "Ideal for growing businesses and teams",
+      name: "LMS - Annual",
+      price: "1,700",
+      currency: "PKR",
+      period: "/student/year",
+      description: "Best value with 2 months free",
       features: [
-        "Up to 50 users",
-        "Advanced LMS features",
-        "Priority support",
-        "Advanced integrations",
+        "Everything in Monthly plan",
         "Advanced analytics",
-        "Custom branding",
-        "API access",
-        "White-label options"
+        "Priority support",
+        "Custom reporting",
+        "Complete web application access",
+        "Enhanced reporting features"
       ],
       notIncluded: [
-        "Unlimited users",
-        "Enterprise security",
-        "Dedicated account manager"
+        "White-label solution",
+        "Custom development",
+        "Dedicated support",
+        "API integration",
+        "Mobile application"
       ],
       popular: true,
-      cta: "Start Free Trial",
+      cta: "Get Started",
       link: "/contact-us"
     },
     {
-      name: "Enterprise",
-      price: "$199",
-      period: "/month",
-      description: "For large organizations with complex needs",
+      name: "International Dialer",
+      price: "$10",
+      currency: "USD",
+      period: "/admin/month",
+      description: "Complete administrative access with full features",
       features: [
-        "Unlimited users",
-        "All LMS features",
-        "24/7 priority support",
-        "Custom integrations",
-        "Advanced analytics",
-        "Custom branding",
-        "Full API access",
-        "White-label options",
-        "Enterprise security",
-        "Dedicated account manager",
-        "Custom training",
-        "SLA guarantees"
+        "Complete administrative access",
+        "User management capabilities",
+        "Advanced analytics and reporting",
+        "Priority customer support",
+        "International calling rates",
+        "Complete web application access"
       ],
-      notIncluded: [],
+      notIncluded: [
+        "Calling minutes (pay per use)",
+        "API integration",
+        "Custom integrations",
+        "Dedicated account manager"
+      ],
       popular: false,
-      cta: "Contact Sales",
+      cta: "Get Started",
       link: "/contact-us"
     }
   ];
@@ -82,10 +85,11 @@ const PricingPlans = () => {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Choose Your Plan
+            Choose Your Software Solution
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            All plans include our core software features. Scale up or down as your business grows.
+            Rent our premium software solutions with flexible pricing. No upfront costs, 
+            just monthly subscriptions for the software you need.
           </p>
         </div>
 
@@ -110,7 +114,7 @@ const PricingPlans = () => {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                  <span className="text-4xl font-bold text-gray-900">{plan.currency} {plan.price}</span>
                   <span className="text-gray-600">{plan.period}</span>
                 </div>
                 <p className="text-gray-600">{plan.description}</p>
@@ -147,7 +151,7 @@ const PricingPlans = () => {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">
-            Need a custom plan? We can tailor a solution for your specific requirements.
+            Need a custom solution? We can tailor our software rental plans for your specific requirements.
           </p>
           <Button asChild variant="outline" size="lg">
             <Link href="/contact-us">Contact Us for Custom Pricing</Link>
