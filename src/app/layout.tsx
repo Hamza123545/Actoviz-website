@@ -3,9 +3,7 @@ import "./globals.scss";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import type { Metadata } from "next";
-import GotoTop from "@/components/molecule/go-to-top";
 import { Toaster } from "@/components/ui/toaster";
-import WhatsApp from "@/components/molecule/whatsapp";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import PageView from "@/lib/datalayer/page-view";
 import { Poppins, Lato } from "next/font/google";
@@ -13,6 +11,7 @@ import UnderConstruction from "@/components/molecule/under-construction";
 import { Toaster as ToasterSonner } from "sonner";
 import { cookies } from "next/headers";
 import { CalDotComProvider, DataLayerProvider } from "@/lib/scripts";
+import ChatbotWidget from "@/components/chatbot/chatbot-widget";
 // import { TagManagerProvider } from "@/lib/scripts"; // Commented out to remove external API calls
 
 const poppins = Poppins({
@@ -63,8 +62,7 @@ export default async function RootLayout({
         <SpeedInsights />
         <Toaster />
         <ToasterSonner />
-        <WhatsApp />
-        <GotoTop />
+        <ChatbotWidget />
         <Footer />
       </body>
     </html>

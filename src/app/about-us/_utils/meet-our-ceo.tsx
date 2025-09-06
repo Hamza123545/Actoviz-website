@@ -1,7 +1,5 @@
 import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 const MeetOurCEO = () => {
   return (
@@ -27,9 +25,9 @@ const MeetOurCEO = () => {
 
         <p>
           Muhammad Farooq, the driving force behind Actoviz, serves as the CEO and is
-          a recognized technology leader in the digital landscape. With an
+          a recognized technology leader in the software rental industry. With an
           unwavering commitment to innovation and excellence, Muhammad brings extensive experience and
-          expertise to the forefront of software solutions.
+          expertise to democratizing access to enterprise-grade software solutions through flexible rental models.
         </p>
       </ANIM__FadeInOutOnScroll>
       <ANIM__FadeInOutOnScroll className="flex flex-col large-gap">
@@ -38,32 +36,9 @@ const MeetOurCEO = () => {
             Years of Experience
           </h4>
           <p>
-            Active contributors to the digital landscape&nbsp;
+            Active contributors to the software rental landscape&nbsp;
             <span className="text-primary font-medium">since 2019</span>,
-            we&apos;ve accumulated invaluable experience and insights in software development and business solutions.
-          </p>
-        </ANIM__FadeInOutOnScroll>
-        <ANIM__FadeInOutOnScroll className="flex flex-col small-gap">
-          <h4 className="text-[16px] md:text-[20px] font-semibold text-primary">
-            Actoviz in&nbsp;
-            <span className="text-[16px] md:text-[20px] font-semibold text-secondary">
-              Dubai
-            </span>
-          </h4>
-          <p>
-            Actoviz recently spread its&nbsp;
-            <Link
-              href="https://drive.google.com/file/d/1g6Vz623OdZHR_YtJfUbDUIXyxIH_K513/view?usp=sharing"
-              passHref={true}
-              target="_blank"
-              className="text-secondary hover:underline font-medium inline-flex items-center group gap-[2px]"
-            >
-              wings to Dubai{" "}
-              <ArrowUpRight className="w-[12px] h-[12px] stroke-secondary group-hover:mb-2 transition ease-in-out duration-500" />
-            </Link>
-            , adding a new chapter to its journey. We envision Actoviz as a
-            catalyst for businesses in Dubai, propelling them to new heights in the
-            digital realm.
+            we&apos;ve accumulated invaluable experience and insights in making enterprise software accessible through innovative rental models and business solutions.
           </p>
         </ANIM__FadeInOutOnScroll>
         <ANIM__FadeInOutOnScroll className="flex flex-col small-gap">
@@ -80,9 +55,8 @@ const MeetOurCEO = () => {
           </p>
         </ANIM__FadeInOutOnScroll>
         <div className="font-semibold text-primary">
-          Muhammad Farooq and Actoviz are dedicated to making your business thrive and soar
-          in the digital skies. Let&apos;s chart the course for your
-          business&apos;s digital success together!
+          Muhammad Farooq and Actoviz are dedicated to making enterprise-grade software accessible to your business through our innovative rental platform. Let&apos;s chart the course for your
+          business&apos;s success with the right software solutions!
         </div>
       </ANIM__FadeInOutOnScroll>
     </section>

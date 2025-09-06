@@ -1,7 +1,7 @@
 import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
-import Centralized from "@/components/assets/centralize";
-import Dollar from "@/components/assets/dollar";
-import Quality from "@/components/assets/quality";
+import CodeCloud from "@/components/assets/code-cloud";
+import ROI from "@/components/assets/roi";
+import LongTermPartnership from "@/components/assets/long-term-partnership";
 import ProcessCard from "@/components/molecule/process-card";
 import SectionHead from "@/components/molecule/section-head";
 import { ReactElement } from "react";
@@ -51,40 +51,41 @@ export default OurProcess;
 const ProcessData = [
   {
     id: 1,
-    title: "Proven Expertise Worldwide",
+    title: "Flexible Software Rental Solutions",
     details: (
       <>
-        Trusted by clients across the globe, we&apos;ve delivered 700+
-        successful projects with 500+ glowing feedbacks. Our results-driven
-        approach ensures your business gets the growth it deserves.
+        Access premium business applications without large upfront investments. 
+        Our subscription-based model includes Learning Management Systems, 
+        International Calling Dialers, and custom AI integrations with 
+        comprehensive support and automatic updates.
       </>
     ),
-    image: <Quality />,
+    image: <CodeCloud />,
   },
   {
     id: 2,
-    title: "Unmatched ROI Performance",
+    title: "Proven Technology Expertise",
     details: (
       <>
-        Our tailored strategies consistently drive 3x-4x ROI. From scaling
-        sales/leads to optimizing costs, we deliver real growth backed by
-        data.We build websites that not only captivate your audience but also
-        convert visitors into loyal customers, ensuring measurable growth for
-        your business.
+        From e-learning platforms to communication solutions, we deliver 
+        enterprise-grade software that drives real business results. Our 
+        solutions include advanced analytics, multi-platform integration, 
+        and 24/7 technical support to ensure your success.
       </>
     ),
-    image: <Dollar />,
+    image: <ROI />,
   },
   {
     id: 3,
-    title: "Your Dedicated Growth Partner",
+    title: "Your Technology Partner",
     details: (
       <>
-        We&apos;re not just service providers; we&apos;re partners in your
-        success. Count on us for personalized solutions, ongoing support, and a
-        relentless focus on scaling your business
+        We&apos;re not just software providers; we&apos;re your dedicated 
+        technology partners. Count on us for personalized solutions, ongoing 
+        support, and a relentless focus on scaling your business with the 
+        right tools and expertise.
       </>
     ),
-    image: <Centralized />,
+    image: <LongTermPartnership />,
   },
 ];

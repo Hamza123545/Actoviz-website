@@ -14,12 +14,11 @@ const HowWeWork = () => {
       <div className="container section">
         <SectionHead
           highlighter="How we work?"
-          H2={<>Getting started with us</>}
+          H2={<>Getting started with our software rental</>}
           paragraphs={[
             <>
-              We&apos;ll listen to <span> your goals</span> and complete a free
-              audit to discover if we&apos;re a great fit to work with each
-              other.
+              We&apos;ll understand your <span>business needs</span> and provide a free
+              consultation to determine the best software solutions for your requirements.
             </>,
           ]}
         />
@@ -62,13 +61,12 @@ const WorkProcessStepsData = [
       </div>
     ),
     image: <Requirements />,
-    title: "Goal Setting & Free Audit",
+    title: "Free Consultation & Needs Assessment",
     description: (
       <>
-        We start by understanding your business goals—whether it&apos;s
-        launching high-ROI ad campaigns, optimizing your website, or tracking
-        performance with precision. Our free audit identifies the best
-        strategies for success.
+        We start by understanding your business requirements—whether you need an
+        LMS for training, a calling dialer for sales, or custom AI integrations.
+        Our free consultation identifies the perfect software solutions for your needs.
       </>
     ),
   },
@@ -80,12 +78,12 @@ const WorkProcessStepsData = [
       </div>
     ),
     image: <ResearchAndConecptualization />,
-    title: "Strategy Development",
+    title: "Software Setup & Configuration",
     description: (
       <>
-        Using data-driven insights, we craft tailored solutions. From creating
-        engaging ad campaigns and conversion-focused websites to setting up
-        advanced analytics, we design strategies to maximize your results.
+        We configure your chosen software solutions with your specific requirements.
+        From setting up your LMS with courses and users to configuring your calling
+        dialer with CRM integration, we ensure everything works seamlessly for your business.
       </>
     ),
   },
@@ -97,12 +95,12 @@ const WorkProcessStepsData = [
       </div>
     ),
     image: <ProjectHandover />,
-    title: "Implementation & Handover",
+    title: "Launch & Ongoing Support",
     description: (
       <>
-        We deliver projects seamlessly—whether it&apos;s a fully functional
-        website, ad campaign dashboard, or actionable analytics report. We also
-        go the extra mile with ongoing support to ensure your continued success.
+        We launch your software solutions and provide comprehensive training for your team.
+        With 24/7 technical support, regular updates, and continuous optimization,
+        we ensure your software rental investment delivers maximum value.
       </>
     ),
   },

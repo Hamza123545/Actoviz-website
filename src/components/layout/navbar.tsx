@@ -25,6 +25,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import NavActions from "../molecule/nav-actions";
 import ShimmerButton from "../magicui/shimmer-button";
+import WhatsAppIcon from "../assets/whatsapp";
 
 const Navbar = ({ token }: { token: string | undefined | null }) => {
   const pathname = usePathname();
@@ -105,6 +106,13 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
               </NavigationMenuList>
             </NavigationMenu>
             <NavActions token={token} />
+            <Link
+              href="https://wa.me/+923157001864"
+              target="_blank"
+              className="ml-4 group border border-secondary bg-secondary hover:bg-indigo-700 h-[40px] w-[40px] rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300"
+            >
+              <WhatsAppIcon className="w-[24px] h-[24px] stroke-white stroke-[1.6px]" />
+            </Link>
           </div>
 
           <div className="block lg:hidden">

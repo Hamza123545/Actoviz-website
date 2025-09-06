@@ -15,7 +15,7 @@ const Footer = () => {
               <BrandLogo dark={true} />
             </div>
             <p className="py-[25px]">
-              Leading software rental platform providing premium business applications on flexible subscription plans.
+              Actoviz is your trusted partner for premium software rental solutions. Access enterprise-grade Learning Management Systems, International Calling Dialers, and custom AI integrations without large upfront investments. Start your subscription today and scale your business with the right tools.
             </p>
             <div className="text-icon py-[25px]">
               <p className="pb-[25px]">Stay Updated with Our Latest Solutions</p>
@@ -41,7 +41,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="pt-[25px]">
-              © {new Date().getFullYear()}. All rights reserved
+              © {new Date().getFullYear()} Actoviz. All rights reserved. | Software Rental Solutions
             </p>
           </ANIM__FadeInOutOnScroll>
 
@@ -88,34 +88,24 @@ const HeadingLinks = [
       },
       {
         id: 1,
-        text: "Solutions",
-        link: "/solutions",
+        text: "About us",
+        link: "/about-us",
       },
       {
         id: 2,
-        text: "Pricing",
-        link: "/pricing",
+        text: "Contact us",
+        link: "/contact-us",
       },
       {
         id: 3,
         text: "Get Free Consultation",
         link: "/get-a-free-consultation",
       },
-      {
-        id: 4,
-        text: "About us",
-        link: "/about-us",
-      },
-      {
-        id: 5,
-        text: "Contact us",
-        link: "/contact-us",
-      },
     ],
   },
   {
     id: 1,
-    title: "Solutions",
+    title: "Software Solutions",
     links: [
       {
         id: 0,
@@ -127,27 +117,36 @@ const HeadingLinks = [
         text: "International Calling Dialer",
         link: "/solutions/dialer",
       },
+      {
+        id: 2,
+        text: "Custom AI Integrations",
+        link: "/services",
+      },
+      {
+        id: 3,
+        text: "Web Development",
+        link: "/services",
+      },
     ],
   },
-
   {
     id: 2,
-    title: "Support",
+    title: "Support & Resources",
     links: [
       {
         id: 0,
+        text: "Pricing Plans",
+        link: "/pricing",
+      },
+      {
+        id: 1,
         text: "Help Center",
         link: "/help",
       },
       {
-        id: 1,
+        id: 2,
         text: "Documentation",
         link: "/docs",
-      },
-      {
-        id: 2,
-        text: "API Reference",
-        link: "/api",
       },
       {
         id: 3,

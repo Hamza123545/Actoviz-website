@@ -1,16 +1,14 @@
 import { ReactElement } from "react";
-import Dollar from "../assets/dollar";
 
 const ProcessCard = ({
   title = "Quality & Experience",
-
   details = (
     <>
       Our skill <span>qualities</span> and experience are a strong match for the
       job requirements.Which means we are <span>ready made</span> for this job.
     </>
   ),
-  image = <Dollar />,
+  image,
 }: {
   title: string;
   details: ReactElement;
