@@ -74,6 +74,15 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
                                 </a>
                               );
                             })}
+                            {item.text === "Services" && (
+                              <div className="col-span-2 mt-4 pt-4 border-t border-gray-200">
+                                <Link href="/get-a-quote">
+                                  <ShimmerButton className="w-full">
+                                    Get a Quote
+                                  </ShimmerButton>
+                                </Link>
+                              </div>
+                            )}
                           </NavigationMenuContent>
                         </NavigationMenuItem>
                       ) : (
@@ -186,6 +195,15 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
                                 </Link>
                               );
                             })}
+                            {linkItem.text === "Services" && (
+                              <div className="mt-4 pt-4 border-t border-gray-200 w-full">
+                                <Link href="/get-a-quote">
+                                  <ShimmerButton className="w-full">
+                                    Get a Quote
+                                  </ShimmerButton>
+                                </Link>
+                              </div>
+                            )}
                           </div>
                         </CollapsibleContent>
                       </Collapsible>
@@ -215,6 +233,21 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
                 Dashboard
               </Link>
             </ul>
+            
+            {/* Mobile Nav Actions */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <div className="flex flex-col gap-4">
+                <NavActions token={token} />
+                <Link
+                  href="https://wa.me/+923157001864"
+                  target="_blank"
+                  className="group border border-secondary bg-secondary hover:bg-indigo-700 h-[40px] w-full rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300"
+                >
+                  <WhatsAppIcon className="w-[20px] h-[20px] stroke-white stroke-[1.6px] mr-2" />
+                  <span className="text-white font-medium">WhatsApp</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -251,6 +284,28 @@ const Links = [
     id: 3,
     text: "Services",
     link: "/services",
+    children: [
+      {
+        id: 1,
+        text: "Web Development",
+        link: "/services",
+      },
+      {
+        id: 2,
+        text: "UI/UX Design",
+        link: "/services",
+      },
+      {
+        id: 3,
+        text: "Digital Marketing",
+        link: "/services",
+      },
+      {
+        id: 4,
+        text: "SEO Services",
+        link: "/services",
+      },
+    ],
   },
   {
     id: 4,
