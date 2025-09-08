@@ -1,4 +1,4 @@
-import { E_FormTypes } from "@/app/joining/_utils/types";
+import { E_FormTypes } from "./types";
 
 const MessageFromCEO = ({
   searchParams,
