@@ -2,10 +2,11 @@ const CodeCloud = () => {
   return (
     <svg
       width="100"
-      height="100"
+      height="32"
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full"
     >
       <g filter="url(#filter0_b_206_1091)">
         <rect

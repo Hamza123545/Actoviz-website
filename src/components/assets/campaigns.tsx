@@ -1,11 +1,12 @@
 const Campaigns = () => {
   return (
     <svg
-      width="113"
-      height="113"
+      width="100%"
+      height="100%"
       viewBox="0 0 113 113"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full"
     >
       <g filter="url(#filter0_b_206_4334)">
         <rect
