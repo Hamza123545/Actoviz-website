@@ -17,8 +17,9 @@ const ANIM__FadeInOutOnScroll: React.FC<ANIM__FadeInOutOnScrollProps> = ({
 }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.3,
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: '50px',
   });
 
   useEffect(() => {
@@ -35,8 +36,8 @@ const ANIM__FadeInOutOnScroll: React.FC<ANIM__FadeInOutOnScrollProps> = ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.3,
-        delay: i * 0.1, // Staggered delay for each child
+        duration: 0.2,
+        delay: i * 0.05, // Reduced staggered delay
       },
     }),
   };

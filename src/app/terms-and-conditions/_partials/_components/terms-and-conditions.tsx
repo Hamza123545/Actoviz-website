@@ -68,8 +68,9 @@ const TermsAndConditions = () => {
           Governing Law
         </h2>
         <p>
-          The laws of the United Arab Emirates govern these terms and
-          conditions.
+          These terms are governed by the laws of the State of Delaware, United States. Any disputes 
+          will be resolved through binding arbitration in accordance with our 
+          dispute resolution procedures.
         </p>
       </section>
 
@@ -90,9 +91,9 @@ const TermsAndConditions = () => {
         <p>
           For inquiries, contact us at&nbsp;
           <Link href="/contact-us" className="text-blue-500">
-            hello@Actoviz.com
+            hello@actoviz.com
           </Link>
-          .
+          . Our main office is located at 651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States.
         </p>
       </section>
     </div>

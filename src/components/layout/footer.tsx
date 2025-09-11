@@ -1,8 +1,9 @@
 import Link from "next/link";
 
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin } from "lucide-react";
 import BrandLogo from "../assets/brandlogo";
 import ANIM__FadeInOutOnScroll from "../anims/fadein.anim";
+import { COMPANY_ADDRESS } from "@/lib/constants";
 
 const Footer = () => {
   return (
@@ -17,6 +18,12 @@ const Footer = () => {
             <p className="py-[25px]">
               Actoviz is your trusted partner for premium software rental solutions. Access enterprise-grade Learning Management Systems, International Calling Dialers, and custom AI integrations without large upfront investments. Start your subscription today and scale your business with the right tools.
             </p>
+            <div className="flex items-start gap-3 py-[15px]">
+              <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+              <p className="text-white text-sm">
+                {COMPANY_ADDRESS}
+              </p>
+            </div>
             <div className="text-icon py-[25px]">
               <p className="pb-[25px]">Stay Updated with Our Latest Solutions</p>
               <div className="icons flex flex-row small-gap">

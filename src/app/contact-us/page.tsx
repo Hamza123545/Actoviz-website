@@ -18,7 +18,7 @@ const ContactUs = () => {
       id: 1,
       icon: <Building />,
       title: "Main Office",
-      info: "123 Tech Plaza, Innovation District, Silicon Valley, CA 94025",
+      info: "651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States",
     },
     {
       id: 2,

@@ -2,7 +2,6 @@
 import { BrandCarousel } from "@/app/_utils/carousel";
 import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
 import SectionHead from "@/components/molecule/section-head";
-import ShortReviews from "@/components/molecule/short-reviews";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
@@ -15,8 +14,11 @@ import {
   Stars,
   Wand2Icon,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import MessageFromCEO from "./_utils/meet-our-ceo";
+
+// Lazy load heavy components
+const ShortReviews = lazy(() => import("@/components/molecule/short-reviews"));
 
 const AboutUS = () => {
 
@@ -155,10 +157,10 @@ const AboutUS = () => {
                 </>,
               ]}
             />
-            <div className="w-full bg-[url('/images/pages/about-us/about.jpg')] bg-center bg-cover grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 large-gap p-[25px] md:p-[50px] rounded-[10px]">
+            <ANIM__FadeInOutOnScroll className="w-full bg-[url('/images/pages/about-us/about.jpg')] bg-center bg-cover grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 large-gap p-[25px] md:p-[50px] rounded-[10px]">
               {NumberCards.map((item: any) => {
                 return (
-                  <ANIM__FadeInOutOnScroll
+                  <div
                     key={item.id}
                     className={`backdrop-blur-lg bg-white/30 border border-secondarymuted rounded-[10px] px-4 py-8 flex flex-col small-gap text-center items-center justify-center ${
                       item.id === 3
@@ -173,10 +175,10 @@ const AboutUS = () => {
                       {item.title}
                     </h3>
                     <p className="text-white">{item.desc}</p>
-                  </ANIM__FadeInOutOnScroll>
+                  </div>
                 );
               })}
-            </div>
+            </ANIM__FadeInOutOnScroll>
           </div>
         </div>
       </section>
@@ -188,40 +190,12 @@ const AboutUS = () => {
             <>We're committed to making enterprise-grade software accessible to businesses of all sizes</>,
           ]}
         />
-        <ANIM__FadeInOutOnScroll className="grid grid-cols-1 sm:grid-cols-2 large-gap container">
+        <div className="grid grid-cols-1 sm:grid-cols-2 large-gap container">
           {Values.map((item: any) => {
-            return (
-              <div
-                key={item.id}
-                className="w-full h-full flex flex-col small-gap text-center items-center justify-center bg-white/5 backdrop-blur border rounded-[10px] border-secondarymuted  hover:shadow-lg p-[25px] transition ease-in-out duration-750"
-              >
-                <div className="[&>svg]:stroke-secondary border border-secondary border-dashed rounded inline-block mx-auto p-3">
-                  {item.icon}
-                </div>
-                <h3 className="text-[16px] md:text-[20px] font-semibold text-primary">
-                  {item.title}
-                </h3>
-                <p className="">{item.desc}</p>
-              </div>
-            );
-          })}
-        </ANIM__FadeInOutOnScroll>
-      </section>
-      <section className="bg-muted rounded-b-[20px] md:rounded-b-[40px]">
-        <div className="py-[63px] container">
-          <BrandCarousel />
-        </div>
-      </section>
-      <ANIM__FadeInOutOnScroll className="container section bg-[url('/images/backgrounds/CircleNest.svg')] bg-cover bg-center">
-        <h2 className="text-center text-primary">Our Solutions</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 large-gap pt-[50px]">
-          {Offerings.map((item: any) => {
             return (
               <ANIM__FadeInOutOnScroll
                 key={item.id}
-                className={`flex flex-col small-gap text-center items-center justify-center ${
-                  item.id % 5 === 0 ? "col-span-1 sm:col-span-2 " : "col-span-1"
-                } bg-white/5 backdrop-blur border rounded-[10px] border-secondarymuted  hover:shadow-lg p-[25px] transition ease-in-out duration-750`}
+                className="w-full h-full flex flex-col small-gap text-center items-center justify-center bg-white/5 backdrop-blur border rounded-[10px] border-secondarymuted hover:shadow-lg p-[25px] transition ease-in-out duration-300"
               >
                 <div className="[&>svg]:stroke-secondary border border-secondary border-dashed rounded inline-block mx-auto p-3">
                   {item.icon}
@@ -234,10 +208,42 @@ const AboutUS = () => {
             );
           })}
         </div>
-      </ANIM__FadeInOutOnScroll>
+      </section>
+      <section className="bg-muted rounded-b-[20px] md:rounded-b-[40px]">
+        <div className="py-[63px] container">
+          <BrandCarousel />
+        </div>
+      </section>
+      <div className="container section bg-[url('/images/backgrounds/CircleNest.svg')] bg-cover bg-center">
+        <ANIM__FadeInOutOnScroll>
+          <h2 className="text-center text-primary">Our Solutions</h2>
+        </ANIM__FadeInOutOnScroll>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 large-gap pt-[50px]">
+          {Offerings.map((item: any) => {
+            return (
+              <ANIM__FadeInOutOnScroll
+                key={item.id}
+                className={`flex flex-col small-gap text-center items-center justify-center ${
+                  item.id % 5 === 0 ? "col-span-1 sm:col-span-2 " : "col-span-1"
+                } bg-white/5 backdrop-blur border rounded-[10px] border-secondarymuted hover:shadow-lg p-[25px] transition ease-in-out duration-300`}
+              >
+                <div className="[&>svg]:stroke-secondary border border-secondary border-dashed rounded inline-block mx-auto p-3">
+                  {item.icon}
+                </div>
+                <h3 className="text-[16px] md:text-[20px] font-semibold text-primary">
+                  {item.title}
+                </h3>
+                <p className="">{item.desc}</p>
+              </ANIM__FadeInOutOnScroll>
+            );
+          })}
+        </div>
+      </div>
       <MessageFromCEO />
 
-      <ShortReviews />
+      <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg"></div>}>
+        <ShortReviews />
+      </Suspense>
       <section className="bg-primary">
         <div className="container section flex flex-col md:flex-row justify-between items-center large-gap">
           <ANIM__FadeInOutOnScroll className="flex flex-col small-gap">

@@ -20,6 +20,36 @@ export const A___Reviews__GetAll = async () => {
 
 export const A___Reviews__Create = async (payload: any) => {
     try {
+        // Send email notification for new review
+        try {
+            const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/send-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    formData: {
+                        ...payload,
+                        _metadata: {
+                            timestamp: new Date().toLocaleString(),
+                            formType: 'review',
+                            userAgent: 'Server',
+                            url: 'Review Submission'
+                        }
+                    },
+                    formType: 'review',
+                    recipientEmail: process.env.ADMIN_EMAIL || 'hello@actoviz.com'
+                }),
+            });
+            
+            if (emailResponse.ok) {
+                console.log("Review email notification sent successfully");
+            }
+        } catch (emailError) {
+            console.error("Failed to send review email notification:", emailError);
+            // Don't fail the review creation if email fails
+        }
+        
         // Simulate creating review
         console.log("Creating review:", payload);
         

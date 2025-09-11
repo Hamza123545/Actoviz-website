@@ -145,27 +145,61 @@ const GetAFreeConsultation = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email notification
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData: {
+            ...formData,
+            _metadata: {
+              timestamp: new Date().toLocaleString(),
+              formType: 'consultation',
+              userAgent: window.navigator.userAgent,
+              url: window.location.href
+            }
+          },
+          formType: 'consultation',
+          recipientEmail: process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'hello@actoviz.com'
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Consultation Request Submitted!",
+          description: "Thank you for your interest. Our team will contact you within 24 hours to schedule your free consultation.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          companySize: "",
+          services: [],
+          currentChallenges: "",
+          timeline: "",
+          budget: "",
+          additionalInfo: ""
+        });
+        setActiveStep(0);
+      } else {
+        throw new Error(result.message || 'Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       toast({
-        title: "Consultation Request Submitted!",
-        description: "Thank you for your interest. Our team will contact you within 24 hours to schedule your free consultation.",
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
       });
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        companySize: "",
-        services: [],
-        currentChallenges: "",
-        timeline: "",
-        budget: "",
-        additionalInfo: ""
-      });
+    } finally {
       setLoading(false);
-      setActiveStep(0);
-    }, 2000);
+    }
   };
 
   const nextStep = () => {

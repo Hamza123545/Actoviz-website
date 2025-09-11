@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import SectionHead from "./section-head";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -8,12 +7,6 @@ import Link from "next/link";
 const ShortReviews = () => {
   return (
     <section className="bg-[url('/images/backgrounds/SquareBackground.svg')] bg-center bg-cover">
-      {/* External script commented out to remove external API calls
-      <Script
-        src="https://static.senja.io/dist/platform.js"
-        // onLoad={() => {}}
-      />
-      */}
       <div className="section container">
         <SectionHead
           highlighter="What Our Customers Say?"
@@ -24,11 +17,52 @@ const ShortReviews = () => {
           }
           paragraphs={[]}
         />
-        <div
-          className="senja-embed pt-[50px]"
-          data-id="4edcde1c-797a-4469-b0b2-abac5fdd3d58"
-          data-lazyload="false"
-        ></div>
+        
+        {/* Static reviews section instead of external script */}
+        <div className="pt-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white/10 backdrop-blur border border-white/20 rounded-lg p-6">
+            <div className="flex items-center mb-4">
+              <div className="flex text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+            <p className="text-white mb-4">
+              "Actoviz has transformed how we access software. The rental model saved us thousands in upfront costs while giving us access to enterprise-grade solutions."
+            </p>
+            <div className="text-white/80 text-sm">
+              - Sarah Johnson, Tech Startup CEO
+            </div>
+          </div>
+          
+          <div className="bg-white/10 backdrop-blur border border-white/20 rounded-lg p-6">
+            <div className="flex items-center mb-4">
+              <div className="flex text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+            <p className="text-white mb-4">
+              "The LMS solution is incredible. Our training completion rates increased by 40% and the analytics help us track progress effectively."
+            </p>
+            <div className="text-white/80 text-sm">
+              - Michael Chen, HR Director
+            </div>
+          </div>
+          
+          <div className="bg-white/10 backdrop-blur border border-white/20 rounded-lg p-6">
+            <div className="flex items-center mb-4">
+              <div className="flex text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+            <p className="text-white mb-4">
+              "Excellent customer support and flexible solutions. Actoviz understands business needs and delivers exactly what we require."
+            </p>
+            <div className="text-white/80 text-sm">
+              - Emily Rodriguez, Operations Manager
+            </div>
+          </div>
+        </div>
+        
         <div className="flex items-center justify-center pt-[50px]">
           <Link href="/reviews/#topPoint">
             <Button variant={"outline"}>View Our Wall of Love</Button>

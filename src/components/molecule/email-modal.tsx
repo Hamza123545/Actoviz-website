@@ -31,19 +31,45 @@ export default function EmailModal({ buttonText, path }: EmailModalProps) {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send the email to your backend
-      // For now, we'll just simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Email sent successfully!",
-        description: "We'll get back to you soon.",
+      // Send email notification
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData: {
+            email,
+            message,
+            _metadata: {
+              timestamp: new Date().toLocaleString(),
+              formType: 'email-modal',
+              userAgent: window.navigator.userAgent,
+              url: window.location.href,
+              path: path
+            }
+          },
+          formType: 'email-modal',
+          recipientEmail: process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'hello@actoviz.com'
+        }),
       });
-      
-      setEmail("");
-      setMessage("");
-      setIsOpen(false);
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Email sent successfully!",
+          description: "We'll get back to you soon.",
+        });
+        
+        setEmail("");
+        setMessage("");
+        setIsOpen(false);
+      } else {
+        throw new Error(result.message || 'Failed to send email');
+      }
     } catch (error) {
+      console.error('Email modal submission error:', error);
       toast({
         title: "Error",
         description: "Failed to send email. Please try again.",

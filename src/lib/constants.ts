@@ -3,7 +3,7 @@ export const COMPANY_TAGLINE = "Premium Software Rental Platform";
 export const COMPANY_DESCRIPTION = "Access premium business applications through our flexible rental model. No upfront costs, just monthly subscriptions for the software you need.";
 export const COMPANY_EMAIL = "hello@actoviz.com";
 export const COMPANY_PHONE = "+1-800-ACTOVIZ";
-export const COMPANY_ADDRESS = "123 Tech Plaza, Innovation District, Silicon Valley, CA 94025";
+export const COMPANY_ADDRESS = "651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States";
 export const COMPANY_WEBSITE = "https://actoviz.com";
 
 // Social Media Links

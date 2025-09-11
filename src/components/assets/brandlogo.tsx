@@ -18,7 +18,6 @@ const BrandLogo = ({
           "text-white": dark,
         })}
       >
-        The
         <span className="text-[20px] md:text-[24px] font-semibold">
           Actoviz
         </span>

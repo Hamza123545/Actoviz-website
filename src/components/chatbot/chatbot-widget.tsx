@@ -120,10 +120,10 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className }) => {
 
   const quickQuestions = [
     "What software solutions do you offer?",
-    "Tell me about your LMS",
-    "What are your pricing plans?",
+    "Tell me about your LMS pricing",
+    "What are your calling dialer rates?",
     "How does the software rental model work?",
-    "Who is your CEO?",
+    "I need to speak with customer support",
     "Do you offer free consultations?"
   ];
 
@@ -346,9 +346,23 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className }) => {
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground mt-2 text-center">
-                Ask about our LMS, Calling Dialer, AI Chatbot, or Web Development
-              </p>
+              <div className="flex items-center justify-between mt-2">
+                <p className="text-xs text-muted-foreground">
+                  Ask about our LMS, Calling Dialer, AI Chatbot, or Web Development
+                </p>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-xs text-primary hover:text-secondary"
+                  onClick={() => {
+                    setInputValue("I need to speak with customer support");
+                    sendMessage();
+                  }}
+                >
+                  <Phone className="w-3 h-3 mr-1" />
+                  Support
+                </Button>
+              </div>
             </div>
           </div>
         </div>

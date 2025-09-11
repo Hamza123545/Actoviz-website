@@ -147,7 +147,7 @@ const ContactUs = () => {
       id: 1,
       icon: <Building />,
       title: "Main Office",
-      info: "Business Center 1, M Floor, Nad Al Sheba, Dubai, U.A.E",
+      info: "651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States",
     },
     {
       id: 2,
