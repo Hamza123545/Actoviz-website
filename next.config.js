@@ -11,6 +11,9 @@ const nextConfig = {
     // No external packages needed
   },
   
+  // Ensure static files are properly served
+  assetPrefix: '',
+  
   images: {
     unoptimized: false, // Enable image optimization for server deployment
     remotePatterns: [
@@ -28,6 +31,10 @@ const nextConfig = {
       },
     ],
   },
+  
+  // Ensure proper static file handling
+  generateEtags: false,
+  poweredByHeader: false,
 };
 
 module.exports = nextConfig;
