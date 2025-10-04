@@ -50,21 +50,39 @@ app.prepare().then(() => {
         }
       }
 
-      // Serve other static files from public directory
-      if (pathname.startsWith('/images/') || pathname.startsWith('/favicon.ico') || pathname.startsWith('/robots.txt') || pathname.startsWith('/sitemap.xml')) {
+      // Serve favicon and other root files
+      if (pathname === '/favicon.ico' || pathname === '/robots.txt' || pathname === '/sitemap.xml') {
         const filePath = path.join(__dirname, 'public', pathname)
         
         if (fs.existsSync(filePath)) {
           const ext = path.extname(filePath)
           const contentType = {
             '.ico': 'image/x-icon',
+            '.txt': 'text/plain',
+            '.xml': 'application/xml'
+          }[ext] || 'application/octet-stream'
+
+          res.setHeader('Content-Type', contentType)
+          res.setHeader('Cache-Control', 'public, max-age=31536000')
+          
+          const fileStream = fs.createReadStream(filePath)
+          fileStream.pipe(res)
+          return
+        }
+      }
+
+      // Serve images from public directory
+      if (pathname.startsWith('/images/')) {
+        const filePath = path.join(__dirname, 'public', pathname)
+        
+        if (fs.existsSync(filePath)) {
+          const ext = path.extname(filePath)
+          const contentType = {
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
             '.jpeg': 'image/jpeg',
             '.gif': 'image/gif',
-            '.svg': 'image/svg+xml',
-            '.txt': 'text/plain',
-            '.xml': 'application/xml'
+            '.svg': 'image/svg+xml'
           }[ext] || 'application/octet-stream'
 
           res.setHeader('Content-Type', contentType)

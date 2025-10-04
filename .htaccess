@@ -18,7 +18,15 @@ RewriteRule ^images/(.*)$ /public/images/$1 [L]
 # Handle favicon and other root files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(favicon\.ico|robots\.txt|sitemap\.xml)$ /public/$1 [L]
+RewriteRule ^favicon\.ico$ /public/favicon.ico [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^robots\.txt$ /public/robots.txt [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^sitemap\.xml$ /public/sitemap.xml [L]
 
 # Let Node.js handle all other routes - no static serving
 # All dynamic routes will be handled by Next.js server

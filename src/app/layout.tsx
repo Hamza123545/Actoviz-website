@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   title: "Actoviz | Premium Software Rental Platform",
   description:
     "Access premium software applications on a subscription basis. Rent Learning Management Systems, International Calling Dialers, and enterprise solutions from Actoviz.",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
