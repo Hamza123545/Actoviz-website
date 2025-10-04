@@ -73,6 +73,7 @@ app.prepare().then(() => {
       }
 
       // Handle Next.js routes
+      console.log(`Handling request: ${req.method} ${req.url}`)
       await handle(req, res, parsedUrl)
     } catch (err) {
       console.error('Error occurred handling', req.url, err)
