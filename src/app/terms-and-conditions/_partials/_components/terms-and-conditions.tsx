@@ -91,7 +91,7 @@ const TermsAndConditions = () => {
         <p>
           For inquiries, contact us at&nbsp;
           <Link href="/contact-us" className="text-blue-500">
-            hello@actoviz.com
+            contact@actoviz.com
           </Link>
           . Our main office is located at 651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States.
         </p>

@@ -31,48 +31,27 @@ export default function EmailModal({ buttonText, path }: EmailModalProps) {
     setIsSubmitting(true);
 
     try {
-      // Send email notification
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formData: {
-            email,
-            message,
-            _metadata: {
-              timestamp: new Date().toLocaleString(),
-              formType: 'email-modal',
-              userAgent: window.navigator.userAgent,
-              url: window.location.href,
-              path: path
-            }
-          },
-          formType: 'email-modal',
-          recipientEmail: process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'hello@actoviz.com'
-        }),
+      // Create mailto link for static site
+      const subject = `New Email Modal submission from ${path}`;
+      const body = `Email: ${email}\n\nMessage:\n${message}\n\nSubmitted from: ${window.location.href}`;
+      const mailtoUrl = `mailto:contact@actoviz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open mailto link
+      window.open(mailtoUrl, '_blank');
+      
+      toast({
+        title: "Email client opened!",
+        description: "Please send the email to complete your submission.",
       });
-
-      const result = await response.json();
-
-      if (result.success) {
-        toast({
-          title: "Email sent successfully!",
-          description: "We'll get back to you soon.",
-        });
-        
-        setEmail("");
-        setMessage("");
-        setIsOpen(false);
-      } else {
-        throw new Error(result.message || 'Failed to send email');
-      }
+      
+      setEmail("");
+      setMessage("");
+      setIsOpen(false);
     } catch (error) {
       console.error('Email modal submission error:', error);
       toast({
         title: "Error",
-        description: "Failed to send email. Please try again.",
+        description: "Failed to open email client. Please try again.",
         variant: "destructive",
       });
     } finally {

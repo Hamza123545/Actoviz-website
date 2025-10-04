@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Send, Bot, User, X, MessageCircle, HelpCircle, Phone, Mail, Sparkles, ArrowUp, MessageSquare, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ChatbotService } from '@/lib/email-service-client';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -60,25 +61,13 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userMessage.content,
-          history: messages.map(msg => ({
-            role: msg.role,
-            content: msg.content
-          }))
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to get response');
-      }
-
-      const data = await response.json();
+      const data = await ChatbotService.sendMessage(
+        userMessage.content,
+        messages.map(msg => ({
+          role: msg.role,
+          content: msg.content
+        }))
+      );
       
       const assistantMessage: Message = {
         role: 'assistant',
@@ -91,7 +80,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className }) => {
       console.error('Error sending message:', error);
       const errorMessage: Message = {
         role: 'assistant',
-        content: 'Sorry, I\'m having trouble connecting right now. Please try again later or contact our support team at info@actoviz.com.',
+        content: 'Sorry, I\'m having trouble connecting right now. Please try again later or contact our support team at contact@actoviz.com.',
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);

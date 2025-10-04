@@ -1,24 +1,16 @@
-"use server";
-
-import { sendEmailNotification, formatFormDataForEmail } from "@/lib/email-service";
+// Client-side email handling for static deployment
+import { EmailService } from "@/lib/email-service-client";
 
 export const Action___POST__SendMail = async (payload: any, type: "contact" | "quote" | "consultation" | "review" | "email-modal") => {
     try {
-        // Format the form data for email
-        const formattedData = formatFormDataForEmail(payload, type);
+        // Use client-side email service
+        const result = await EmailService.sendEmail(payload, type);
         
-        // Send email notification
-        await sendEmailNotification({
-            formData: formattedData,
-            formType: type,
-            recipientEmail: process.env.ADMIN_EMAIL || 'hello@actoviz.com'
-        });
-        
-        console.log("Form submitted and email sent:", { ...payload, type });
+        console.log("Form submitted:", { ...payload, type, result });
         
         return {
-            success: true,
-            message: "Thank you for your message! We'll get back to you soon.",
+            success: result.success,
+            message: result.message,
         };
     } catch (error) {
         console.error("Email sending failed:", error);

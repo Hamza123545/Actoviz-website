@@ -1,7 +1,7 @@
 export const COMPANY_NAME = "Actoviz";
 export const COMPANY_TAGLINE = "Premium Software Rental Platform";
 export const COMPANY_DESCRIPTION = "Access premium business applications through our flexible rental model. No upfront costs, just monthly subscriptions for the software you need.";
-export const COMPANY_EMAIL = "hello@actoviz.com";
+export const COMPANY_EMAIL = "contact@actoviz.com";
 export const COMPANY_PHONE = "+1-800-ACTOVIZ";
 export const COMPANY_ADDRESS = "651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States";
 export const COMPANY_WEBSITE = "https://actoviz.com";
@@ -42,10 +42,10 @@ export const KEY_BENEFITS = [
 
 // Contact Information
 export const CONTACT_INFO = {
-  sales: "sales@actoviz.com",
-  support: "support@actoviz.com",
-  legal: "legal@actoviz.com",
-  privacy: "privacy@actoviz.com"
+  sales: "contact@actoviz.com",
+  support: "contact@actoviz.com",
+  legal: "contact@actoviz.com",
+  privacy: "contact@actoviz.com"
 };
 
 // Office Hours

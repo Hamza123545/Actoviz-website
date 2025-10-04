@@ -1,4 +1,4 @@
-// Email service utility for sending form submissions
+// Email service utility for form submissions (static site compatible)
 export interface EmailData {
   formData: any;
   formType: 'contact' | 'quote' | 'consultation' | 'review' | 'email-modal';
@@ -7,21 +7,28 @@ export interface EmailData {
 
 export async function sendEmailNotification(emailData: EmailData) {
   try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailData),
-    });
-
-    const result = await response.json();
+    // For static sites, we'll use a client-side email service like EmailJS
+    // or redirect to a mailto link as fallback
     
-    if (!response.ok) {
-      throw new Error(result.message || 'Failed to send email');
-    }
-
-    return result;
+    // Log the form submission for debugging
+    console.log('Form submission:', emailData);
+    
+    // Create mailto link as fallback
+    const subject = `New ${emailData.formType} submission`;
+    const body = `Form Type: ${emailData.formType}\n\nForm Data:\n${JSON.stringify(emailData.formData, null, 2)}`;
+    const mailtoUrl = `mailto:${emailData.recipientEmail || 'contact@actoviz.com'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open mailto link
+    window.open(mailtoUrl, '_blank');
+    
+    return {
+      success: true,
+      message: 'Email client opened successfully. Please send the email to complete your submission.',
+      data: {
+        formType: emailData.formType,
+        timestamp: new Date().toISOString()
+      }
+    };
   } catch (error) {
     console.error('Email service error:', error);
     throw error;

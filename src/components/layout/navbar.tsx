@@ -27,7 +27,7 @@ import NavActions from "../molecule/nav-actions";
 import ShimmerButton from "../magicui/shimmer-button";
 import WhatsAppIcon from "../assets/whatsapp";
 
-const Navbar = ({ token }: { token: string | undefined | null }) => {
+const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -114,7 +114,7 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
                 })}
               </NavigationMenuList>
             </NavigationMenu>
-            <NavActions token={token} />
+            <NavActions />
             <Link
               href="https://wa.me/+923157001864"
               target="_blank"
@@ -237,7 +237,7 @@ const Navbar = ({ token }: { token: string | undefined | null }) => {
             {/* Mobile Nav Actions */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <div className="flex flex-col gap-4">
-                <NavActions token={token} />
+                <NavActions />
                 <Link
                   href="https://wa.me/+923157001864"
                   target="_blank"

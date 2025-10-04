@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import { Facebook, Instagram, Linkedin, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Mail } from "lucide-react";
 import BrandLogo from "../assets/brandlogo";
 import ANIM__FadeInOutOnScroll from "../anims/fadein.anim";
-import { COMPANY_ADDRESS } from "@/lib/constants";
+import { COMPANY_ADDRESS, COMPANY_EMAIL } from "@/lib/constants";
 
 const Footer = () => {
   return (
@@ -23,6 +23,15 @@ const Footer = () => {
               <p className="text-white text-sm">
                 {COMPANY_ADDRESS}
               </p>
+            </div>
+            <div className="flex items-start gap-3 py-[15px]">
+              <Mail className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+              <Link 
+                href={`mailto:${COMPANY_EMAIL}`}
+                className="text-white text-sm hover:text-secondary transition-colors"
+              >
+                {COMPANY_EMAIL}
+              </Link>
             </div>
             <div className="text-icon py-[25px]">
               <p className="pb-[25px]">Stay Updated with Our Latest Solutions</p>

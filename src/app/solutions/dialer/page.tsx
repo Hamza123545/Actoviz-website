@@ -25,6 +25,7 @@ import {
   ZoomIn
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ActovizWebDialerPage = () => {
@@ -99,66 +100,71 @@ const ActovizWebDialerPage = () => {
     { country: "UAE", rate: "$0.05" }
   ];
 
-  // Dialer Images Data - Add your actual images here
+  // Dialer Images Data - All actual dialer screenshots
   const dialerImages = [
     {
       id: 1,
-      title: "Call Dashboard",
-      description: "Real-time call management and monitoring",
+      title: "Home Screen",
+      description: "Main dialer interface with call controls and contact management",
       icon: <Phone className="w-12 h-12" />,
-      image: "/images/dialer/dashboard.png"
+      image: "/images/pages/dilaer/homescreendialer.png"
     },
     {
       id: 2,
-      title: "Call Analytics",
-      description: "Comprehensive reporting and performance metrics",
-      icon: <BarChart3 className="w-12 h-12" />,
-      image: "/images/dialer/analytics.png"
+      title: "Call Logs",
+      description: "Complete call history with detailed call information and status tracking",
+      icon: <Clock className="w-12 h-12" />,
+      image: "/images/pages/dilaer/calllogsscreenshot.png"
     },
     {
       id: 3,
-      title: "User Management",
-      description: "Admin controls and user permissions",
-      icon: <Users className="w-12 h-12" />,
-      image: "/images/dialer/users.png"
+      title: "Call Recordings",
+      description: "Access and manage recorded calls with playback functionality",
+      icon: <Headphones className="w-12 h-12" />,
+      image: "/images/pages/dilaer/callrecordingss.png"
     },
     {
       id: 4,
-      title: "Call History",
-      description: "Complete call logs and history tracking",
-      icon: <Clock className="w-12 h-12" />,
-      image: "/images/dialer/history.png"
+      title: "Analytics Dashboard",
+      description: "Comprehensive analytics and performance metrics overview",
+      icon: <BarChart3 className="w-12 h-12" />,
+      image: "/images/pages/dilaer/analyticspage.png"
     },
     {
       id: 5,
-      title: "International Rates",
-      description: "Global calling rates and coverage",
-      icon: <Globe className="w-12 h-12" />,
-      image: "/images/dialer/rates.png"
+      title: "Analytics Reports",
+      description: "Detailed reporting with charts and data visualization",
+      icon: <TrendingUp className="w-12 h-12" />,
+      image: "/images/pages/dilaer/analyticspage2.png"
     },
     {
       id: 6,
-      title: "Security Settings",
-      description: "Enterprise security and compliance",
-      icon: <Shield className="w-12 h-12" />,
-      image: "/images/dialer/security.png"
+      title: "Advanced Analytics",
+      description: "In-depth analytics with filtering and export capabilities",
+      icon: <Target className="w-12 h-12" />,
+      image: "/images/pages/dilaer/analyticspage3.png"
     },
     {
       id: 7,
-      title: "System Settings",
-      description: "Configuration and system preferences",
-      icon: <Zap className="w-12 h-12" />,
-      image: "/images/dialer/settings.png"
+      title: "User Management",
+      description: "Admin panel for managing users, roles, and permissions",
+      icon: <Users className="w-12 h-12" />,
+      image: "/images/pages/dilaer/usermanagment.png"
+    },
+    {
+      id: 8,
+      title: "Role Management",
+      description: "Configure user roles and access permissions for different team members",
+      icon: <Shield className="w-12 h-12" />,
+      image: "/images/pages/dilaer/rolemanagmentpage.png"
+    },
+    {
+      id: 9,
+      title: "Billing Management",
+      description: "Comprehensive billing dashboard with usage tracking and payment management",
+      icon: <DollarSign className="w-12 h-12" />,
+      image: "/images/pages/dilaer/billingpage.png"
     }
-    // Add more images here as needed - the gallery will automatically adjust
-    // Example:
-    // {
-    //   id: 8,
-    //   title: "Your Custom Feature",
-    //   description: "Description of your feature",
-    //   icon: <YourIcon className="w-12 h-12" />,
-    //   image: "/images/dialer/your-image.png"
-    // }
   ];
 
   const openImageModal = (index: number) => {
@@ -422,25 +428,50 @@ const ActovizWebDialerPage = () => {
                       {dialerImages.map((image, index) => (
                   <motion.div 
                           key={image.id}
-                          className={`flex-shrink-0 w-80 h-48 bg-white/5 rounded-lg border border-white/10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition-all duration-300 group relative overflow-hidden ${
+                          className={`flex-shrink-0 w-80 h-48 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:bg-white/10 transition-all duration-300 group relative overflow-hidden ${
                             index === currentSlideIndex ? 'ring-2 ring-blue-400/50' : ''
                           }`}
                           onClick={() => openImageModal(index)}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
+                          {/* Actual Image Preview */}
+                          <div className="w-full h-full relative">
+                            <Image 
+                              src={image.image} 
+                              alt={image.title}
+                              fill
+                              className="object-cover"
+                              onError={(e) => {
+                                // Fallback to icon if image fails to load
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                const fallback = target.nextElementSibling as HTMLElement;
+                                if (fallback) fallback.style.display = 'flex';
+                              }}
+                            />
+                            {/* Fallback with icon */}
+                            <div className="absolute inset-0 bg-white/5 flex items-center justify-center" style={{display: 'none'}}>
+                              <div className="text-center">
+                                <div className="text-white/50 mx-auto mb-3 group-hover:text-white/70 transition-colors duration-300">
+                                  {image.icon}
+                                </div>
+                                <p className="text-sm text-white/70 group-hover:text-white transition-colors duration-300">{image.title}</p>
+                                <p className="text-xs text-white/50 mt-1 group-hover:text-white/60 transition-colors duration-300">{image.description}</p>
+                              </div>
+                            </div>
+                          </div>
+                          
                           {/* Zoom overlay */}
                           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <ZoomIn className="w-8 h-8 text-white" />
                           </div>
                           
-                          <div className="text-center">
-                            <div className="text-white/50 mx-auto mb-3 group-hover:text-white/70 transition-colors duration-300">
-                              {image.icon}
-                            </div>
-                            <p className="text-sm text-white/70 group-hover:text-white transition-colors duration-300">{image.title}</p>
-                            <p className="text-xs text-white/50 mt-1 group-hover:text-white/60 transition-colors duration-300">{image.description}</p>
-                        </div>
+                          {/* Title overlay */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                            <p className="text-sm text-white font-medium">{image.title}</p>
+                            <p className="text-xs text-white/70 mt-1">{image.description}</p>
+                          </div>
                   </motion.div>
                 ))}
               </div>
@@ -690,21 +721,34 @@ const ActovizWebDialerPage = () => {
                 {/* Image Section */}
                 <div className="flex-1 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 sm:p-8 lg:p-16">
                   <div className="relative w-full h-full max-h-[60vh] lg:max-h-none">
-                    {/* Placeholder for actual image */}
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl sm:rounded-3xl flex items-center justify-center border-2 border-dashed border-gray-300 shadow-3xl">
-                      <div className="text-center p-4">
-                        <div className="w-20 h-20 sm:w-32 sm:h-32 bg-blue-500/20 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                          {dialerImages[currentImageIndex]?.icon}
+                    {/* Actual Dialer Screenshot */}
+                    <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-3xl border border-gray-200">
+                      <Image 
+                        src={dialerImages[currentImageIndex]?.image || ''} 
+                        alt={dialerImages[currentImageIndex]?.title || ''}
+                        fill
+                        className="object-contain bg-white"
+                        onError={(e) => {
+                          // Fallback to placeholder if image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const fallback = target.nextElementSibling as HTMLElement;
+                          if (fallback) fallback.style.display = 'flex';
+                        }}
+                      />
+                      {/* Fallback placeholder */}
+                      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center border-2 border-dashed border-gray-300" style={{display: 'none'}}>
+                        <div className="text-center p-4">
+                          <div className="w-20 h-20 sm:w-32 sm:h-32 bg-blue-500/20 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                            {dialerImages[currentImageIndex]?.icon}
+                          </div>
+                          <h3 className="text-2xl sm:text-4xl font-bold text-gray-700 mb-2 sm:mb-4">
+                            {dialerImages[currentImageIndex]?.title}
+                          </h3>
+                          <p className="text-sm sm:text-xl text-gray-500 mb-3 sm:mb-6">
+                            {dialerImages[currentImageIndex]?.description}
+                          </p>
                         </div>
-                        <h3 className="text-2xl sm:text-4xl font-bold text-gray-700 mb-2 sm:mb-4">
-                          {dialerImages[currentImageIndex]?.title}
-                        </h3>
-                        <p className="text-sm sm:text-xl text-gray-500 mb-3 sm:mb-6">
-                          {dialerImages[currentImageIndex]?.description}
-                        </p>
-                        <p className="text-xs sm:text-lg text-gray-400">
-                          Replace with: {dialerImages[currentImageIndex]?.image}
-                        </p>
                       </div>
                     </div>
                   </div>

@@ -8,7 +8,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import PageView from "@/lib/datalayer/page-view";
 import { Poppins, Lato } from "next/font/google";
 import { Toaster as ToasterSonner } from "sonner";
-import { cookies } from "next/headers";
 import { CalDotComProvider, DataLayerProvider } from "@/lib/scripts";
 import ChatbotWidget from "@/components/chatbot/chatbot-widget";
 // import { TagManagerProvider } from "@/lib/scripts"; // Commented out to remove external API calls
@@ -37,13 +36,11 @@ export const metadata: Metadata = {
     "Access premium software applications on a subscription basis. Rent Learning Management Systems, International Calling Dialers, and enterprise solutions from Actoviz.",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const token = (await cookies())?.get("token")?.value;
-
   return (
     <html lang="en">
       <head>
@@ -55,7 +52,7 @@ export default async function RootLayout({
       <body className={`${poppins.className} ${lato.variable}`}>
         {/* <TagManagerProvider /> */}
         <PageView />
-        <Navbar token={token} />
+        <Navbar />
         <main className="overflow-hidden">{children}</main>
         <SpeedInsights />
         <Toaster />

@@ -153,17 +153,75 @@ const GetAFreeConsultation = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          formData: {
-            ...formData,
-            _metadata: {
-              timestamp: new Date().toLocaleString(),
-              formType: 'consultation',
-              userAgent: window.navigator.userAgent,
-              url: window.location.href
-            }
-          },
-          formType: 'consultation',
-          recipientEmail: process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'hello@actoviz.com'
+          to: 'contact@actoviz.com',
+          from: formData.email,
+          subject: `New Consultation Request from ${formData.name}`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+              <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
+                New Consultation Request
+              </h2>
+              
+              <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #1e40af; margin-top: 0;">Contact Information</h3>
+                <p><strong>Name:</strong> ${formData.name}</p>
+                <p><strong>Email:</strong> ${formData.email}</p>
+                <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
+                <p><strong>Company:</strong> ${formData.company || 'Not provided'}</p>
+                <p><strong>Company Size:</strong> ${formData.companySize || 'Not provided'}</p>
+              </div>
+              
+              <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #1e40af; margin-top: 0;">Services Interested In</h3>
+                <p>${formData.services.join(', ') || 'Not specified'}</p>
+              </div>
+              
+              <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #1e40af; margin-top: 0;">Current Challenges</h3>
+                <p style="white-space: pre-wrap;">${formData.currentChallenges || 'Not provided'}</p>
+              </div>
+              
+              <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #1e40af; margin-top: 0;">Project Details</h3>
+                <p><strong>Timeline:</strong> ${formData.timeline || 'Not specified'}</p>
+                <p><strong>Budget:</strong> ${formData.budget || 'Not specified'}</p>
+              </div>
+              
+              <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #1e40af; margin-top: 0;">Additional Information</h3>
+                <p style="white-space: pre-wrap;">${formData.additionalInfo || 'Not provided'}</p>
+              </div>
+              
+              <div style="background-color: #e0f2fe; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <p style="margin: 0; color: #0277bd;"><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
+                <p style="margin: 5px 0 0 0; color: #0277bd;"><strong>Form Type:</strong> Consultation Request</p>
+              </div>
+            </div>
+          `,
+          text: `
+Consultation Request from ${formData.name}
+
+Contact Information:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Company: ${formData.company || 'Not provided'}
+Company Size: ${formData.companySize || 'Not provided'}
+
+Services Interested In: ${formData.services.join(', ') || 'Not specified'}
+
+Current Challenges:
+${formData.currentChallenges || 'Not provided'}
+
+Project Details:
+Timeline: ${formData.timeline || 'Not specified'}
+Budget: ${formData.budget || 'Not specified'}
+
+Additional Information:
+${formData.additionalInfo || 'Not provided'}
+
+Submitted at: ${new Date().toLocaleString()}
+          `.trim()
         }),
       });
 

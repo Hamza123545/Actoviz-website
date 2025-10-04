@@ -1,9 +1,10 @@
 "use client";
 
-import { Building, MessageCircle, Phone } from "lucide-react";
+import { Building, MessageCircle, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
 import ContactForm from "./contact-form";
+import { COMPANY_EMAIL } from "@/lib/constants";
 
 
 const ContactUs = () => {
@@ -16,12 +17,18 @@ const ContactUs = () => {
     },
     {
       id: 1,
+      icon: <Mail />,
+      title: "Email Us",
+      info: COMPANY_EMAIL,
+    },
+    {
+      id: 2,
       icon: <Building />,
       title: "Main Office",
       info: "651 North Broad Street, Suite 201, Middletown, Delaware 19709, United States",
     },
     {
-      id: 2,
+      id: 3,
       icon: <MessageCircle />,
       title: "WhatsApp",
       info: "+1-800-ACTOVIZ",
@@ -49,8 +56,12 @@ const ContactUs = () => {
                 <h3 className="text-[16px] lg:text-[20px] font-medium text-white">
                   {item.title}
                 </h3>
-                {item.id === 2 || item.id === 0 ? (
-                  <Link href={`tel:${item.info}`} className="text-white">
+                {item.id === 0 || item.id === 3 ? (
+                  <Link href={`tel:${item.info}`} className="text-white hover:text-secondary transition-colors">
+                    {item.info}
+                  </Link>
+                ) : item.id === 1 ? (
+                  <Link href={`mailto:${item.info}`} className="text-white hover:text-secondary transition-colors">
                     {item.info}
                   </Link>
                 ) : (

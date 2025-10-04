@@ -1,0 +1,18 @@
+{
+  "/api/send-email/route": "/api/send-email",
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/pricing/page": "/pricing",
+  "/resources/page": "/resources",
+  "/solutions/page": "/solutions",
+  "/terms-and-conditions/page": "/terms-and-conditions",
+  "/get-a-quote/page": "/get-a-quote",
+  "/about-us/page": "/about-us",
+  "/contact-us/page": "/contact-us",
+  "/get-a-free-consultation/page": "/get-a-free-consultation",
+  "/reviews/page": "/reviews",
+  "/reviews/post/page": "/reviews/post",
+  "/services/page": "/services",
+  "/solutions/dialer/page": "/solutions/dialer",
+  "/solutions/lms/page": "/solutions/lms"
+}

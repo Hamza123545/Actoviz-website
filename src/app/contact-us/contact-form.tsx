@@ -13,7 +13,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Building, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import ANIM__FadeInOutOnScroll from "@/components/anims/fadein.anim";
-import { Action___POST__SendMail } from "./actions";
+import { EmailService } from "@/lib/email-service-client";
 
 // Function to track contact form submissions
 function trackContactFormSubmission(formData: any) {
@@ -57,11 +57,11 @@ const ContactUs = () => {
   const [errors, setErrors] = useState<any>({});
 
 
-  // testing api route
+  // Send email using client-side service
   const SendEmail = async (formData: any) => {
     setLoading(true);
     try {
-      const result = await Action___POST__SendMail(formData, "contact");
+      const result = await EmailService.sendEmail(formData, "contact");
       if (result?.success) {
         toast({
           title: "Message Sending",
@@ -78,11 +78,13 @@ const ContactUs = () => {
           subject: "Contact Us",
           title: "Contact Us Form Submission",
         });
+      } else {
+        throw new Error(result.message || "Failed to send email");
       }
     } catch (error) {
       setLoading(false);
       toast({
-        variant: "error",
+        variant: "destructive",
         title: "Message Sending",
         description: "Failed! Something went wrong.",
       });
