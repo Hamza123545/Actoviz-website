@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'actoviz.com',
       port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for 587
+      secure: process.env.SMTP_SECURE === 'true',
       auth: {
         user: process.env.SMTP_USER || 'contact@actoviz.com',
         pass: process.env.EMAIL_PASSWORD, // Set this in your environment variables
