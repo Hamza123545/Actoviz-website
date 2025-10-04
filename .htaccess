@@ -20,8 +20,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(favicon\.ico|robots\.txt|sitemap\.xml)$ /public/$1 [L]
 
-# Let Node.js handle all other routes - no proxy needed
-# Remove proxy and let Node.js handle routing directly
+# Let Node.js handle all other routes - no static serving
+# All dynamic routes will be handled by Next.js server
 
 # Set proper MIME types
 <IfModule mod_mime.c>

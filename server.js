@@ -11,6 +11,10 @@ const port = process.env.PORT || 3000
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
 
+console.log('🚀 Starting Actoviz Next.js Server...')
+console.log(`📡 Server will run on port: ${port}`)
+console.log(`🌐 Hostname: ${hostname}`)
+
 app.prepare().then(() => {
   createServer(async (req, res) => {
     try {
@@ -72,13 +76,15 @@ app.prepare().then(() => {
         }
       }
 
-      // Handle Next.js routes
-      console.log(`Handling request: ${req.method} ${req.url}`)
+      // Handle Next.js routes - all dynamic routes
+      console.log(`🌐 Handling request: ${req.method} ${req.url}`)
       
       // Set proper headers for all responses
       res.setHeader('X-Frame-Options', 'DENY')
       res.setHeader('X-Content-Type-Options', 'nosniff')
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
       
+      // Let Next.js handle all routes dynamically
       await handle(req, res, parsedUrl)
     } catch (err) {
       console.error('Error occurred handling', req.url, err)
