@@ -7,12 +7,12 @@
   "/solutions/page": "/solutions",
   "/terms-and-conditions/page": "/terms-and-conditions",
   "/get-a-quote/page": "/get-a-quote",
-  "/about-us/page": "/about-us",
   "/contact-us/page": "/contact-us",
   "/get-a-free-consultation/page": "/get-a-free-consultation",
+  "/about-us/page": "/about-us",
+  "/services/page": "/services",
   "/reviews/page": "/reviews",
   "/reviews/post/page": "/reviews/post",
-  "/services/page": "/services",
   "/solutions/dialer/page": "/solutions/dialer",
   "/solutions/lms/page": "/solutions/lms"
 }
