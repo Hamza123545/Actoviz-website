@@ -76,7 +76,16 @@
 
 2. **Set Environment Variables:**
    - Go to Plesk > Domains > Your Domain > Node.js > Environment Variables
-   - Add: `EMAIL_PASSWORD` = your actual email password
+   - Add these variables:
+     ```
+     EMAIL_PASSWORD = your_actual_email_password
+     SMTP_HOST = actoviz.com
+     SMTP_PORT = 587
+     SMTP_SECURE = false
+     SMTP_USER = contact@actoviz.com
+     SMTP_FROM = noreply@actoviz.com
+     ADMIN_EMAIL = contact@actoviz.com
+     ```
 
 3. **Set up SSL certificate:**
    - Go to Plesk > Domains > Your Domain > SSL/TLS Certificates

@@ -8,11 +8,11 @@ export async function POST(request: NextRequest) {
 
     // SMTP Configuration using your email server
     const transporter = nodemailer.createTransport({
-      host: 'actoviz.com',
-      port: 587, // Try port 587 instead of 465
-      secure: false, // false for 587, true for 465
+      host: process.env.SMTP_HOST || 'actoviz.com',
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for 587
       auth: {
-        user: 'contact@actoviz.com',
+        user: process.env.SMTP_USER || 'contact@actoviz.com',
         pass: process.env.EMAIL_PASSWORD, // Set this in your environment variables
       },
       tls: {
@@ -23,8 +23,8 @@ export async function POST(request: NextRequest) {
 
     // Email options
     const mailOptions = {
-      from: from || 'noreply@actoviz.com',
-      to: to || 'contact@actoviz.com',
+      from: from || process.env.SMTP_FROM || 'noreply@actoviz.com',
+      to: to || process.env.ADMIN_EMAIL || 'contact@actoviz.com',
       subject: subject || 'New Form Submission',
       html: html,
       text: text,
