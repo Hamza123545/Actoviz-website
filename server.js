@@ -5,7 +5,7 @@ const path = require('path')
 const fs = require('fs')
 
 const dev = false
-const hostname = 'localhost'
+const hostname = '0.0.0.0' // Listen on all interfaces
 const port = process.env.PORT || 3000
 
 const app = next({ dev, hostname, port })
@@ -74,6 +74,11 @@ app.prepare().then(() => {
 
       // Handle Next.js routes
       console.log(`Handling request: ${req.method} ${req.url}`)
+      
+      // Set proper headers for all responses
+      res.setHeader('X-Frame-Options', 'DENY')
+      res.setHeader('X-Content-Type-Options', 'nosniff')
+      
       await handle(req, res, parsedUrl)
     } catch (err) {
       console.error('Error occurred handling', req.url, err)
